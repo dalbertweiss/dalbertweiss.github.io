@@ -1,1 +1,22 @@
-theme: jekyll-theme-cayman
+title: Dominique's Logging
+name: "Dominique's "
+author: Dominique Albert
+baseurl: "/da-log"
+description: Document my learning and discoveries.
+profile_url: "http://dalbertweiss.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+excerpt_separator: <!--more-->
+plugins:
+  - jekyll-feed
+  - jekyll-archives
+exclude:
+  - Gemfile
+  - Gemfile.lock
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
+  toc_levels: 1..3
