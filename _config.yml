@@ -2,7 +2,7 @@ title:              Clean Blog
 email:              d.albert-weiss@posteo.de
 description:        A Blog Theme by Start Bootstrap
 author:             Start Bootstrap
-baseurl:            "/startbootstrap-clean-blog-jekyll"
+baseurl:            ""
 url:                "https://dalbertweiss.github.io/"
 
 # Social Profiles
