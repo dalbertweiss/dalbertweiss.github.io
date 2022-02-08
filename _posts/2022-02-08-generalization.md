@@ -4,25 +4,21 @@ title: "Capabilities of deep learning models to generalize."
 date: 2020-01-27 23:45:13 -0400
 background: '/img/posts/02.jpg'
 ---
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-While the of implementation and training deep learning models becomes more easy to 
-    accomplish the generalization of deep learning still remains an active research field.
-    This specificially concerns the use of stochastic gradient descent (SGD) which by
-    Schmidthuber has often been assosciated with a flat minima during training [1]. However, this
-    thesis has largely been dismissed by <a href="https://arxiv.org/pdf/2103.06219.pdf/">[2]</a>.
+
+While the of implementation and training deep learning models becomes more easy to accomplish the generalization of deep learning still remains an active research field. This specificially concerns the use of stochastic gradient descent (SGD) which by Schmidthuber has often been assosciated with a flat minima during training [1]. However, this has largely been dismissed by <a href="https://arxiv.org/pdf/2103.06219.pdf/">[2]</a>.
+
+During this article I would like to discuss some approaches that has arrised for gener
+
+
     
 
-    During this article I would like to discuss some approaches that has arrised for gener
-
-**test**
-    
-
-<h2 class="section-heading">Classical approaches</h2>
+# Classical approaches
 <!---Occam’s Razor
 Minimum Description Length principle
 Kolmogorov Complexity
 Solomonoff’s Inference Theory---->
+**test**
 
 <div class="tip" markdown="1">Have **fun!** test *test*</div>
 
