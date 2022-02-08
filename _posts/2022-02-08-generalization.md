@@ -6,7 +6,7 @@ background: '/img/posts/02.jpg'
 ---
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-<p>While the of implementation and training deep learning models becomes more easy to 
+While the of implementation and training deep learning models becomes more easy to 
     accomplish the generalization of deep learning still remains an active research field.
     This specificially concerns the use of stochastic gradient descent (SGD) which by
     Schmidthuber has often been assosciated with a flat minima during training [1]. However, this
@@ -14,7 +14,8 @@ background: '/img/posts/02.jpg'
     
 
     During this article I would like to discuss some approaches that has arrised for gener
-</p>
+
+**test**
     
 
 <h2 class="section-heading">Classical approaches</h2>
