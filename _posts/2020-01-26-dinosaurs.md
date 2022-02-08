@@ -24,14 +24,14 @@ is used for training. This is counterintuitive for deep learning models, for whi
 proven in better results. Hence, the application of active learning to deep learning portrays a new paradigm, for which a
 rephrasing of active learning is inevitable. </p>
 
-<span style="display:block" class="note">It **works!**</span>
-
 <p>While classical active learning selects instances based on uncertainty, the understanding of uncertainty for neural
 networks is not straightforward. Uncertainty-based methods sample instances close to the decision boundary. However,
 this becomes intractable in case of neural network architectures. Further, it has shown that conventional heuristics such
 as confidence show to be misleading [?, 2]. For this reason, recent progress has put strong emphasis on the question of
 how to acquire samples for batch aware scenarios.</p>
- 
+
+**test test**
+
 <h2 class="section-heading">The Active Learning Framework</h2>
 
 Acquiring labeled data turns out to be costly especially when deep learning is applied. Active Learning is a framework
