@@ -93,3 +93,25 @@ sampling strategy φ(x) which is contained within the unnotated data U. After an
 X . This procedure is repeated until the labeling budget is exhausted [23, ?].
 
 $`a^2+b^2=c^2`$.
+
+For active learning, one distinguishes between three different scenarios. Membership query synthesis allows the
+learning algorithm to query any unlabeled data instance in the input space, including the instances provided by the
+learning algorithm [20]. In stream-based selective sampling a stream of data is passed for annotation which makes the
+assumption that querying for an unnotated data instance is inexpensive. In a pool-based scenario a data instances are
+derived from a unlabled pool. Although the pool-based scenario is most common within the literature, the stream-based
+scenario entail most potential when applied to embedded systems or mobile devices [24, 12, 13].
+
+
+## Deep Active Learning
+
+Unlike normal data-driven approaches, the selection of the acquisition function has remained hand-crafted in deep active
+learning settings. A main concern of applying active learning to deep learning settings remains the lacks the scalibility to
+high dimensional data [33, 10]. This can be argued with the fact that deep learning models are trained by a batch-based
+manner, while classical active learning is formulated based on sequential querying strategy. Furthermore, to reduce the
+cost of annotation the selection of the most representative and informative samples is required. Although there has not
+been a clear definition regarding an informative, represenative sampling, informativeness has been assosciated with uncertainty while representativeness concentrates on diversity.
+The main distinction between classical active learning and deep active learning relates to the sampling of batches instead
+of instances during each iteration. While the training of deep networks based on single instances is ineffective, it may
+also favor overfitting. Thus, unlike classical active learning explained in section 4.1, the sampling is executed in batches
+such that B = {x∗1, x∗2, ..., x∗b} for which b < N. Thus, to find the parameterized classifier hθ for a batch-aware setting
+it can be written

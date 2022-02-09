@@ -19,10 +19,13 @@ Problems encountered during continual learning might be the shifts of data distr
 
 
 ### b. Replay methods
-Replay methods stores previous raw data or generates pseudo-samples using generative models, replayed within learning the new task to alleviate forgetting. One of the most simple approaches is to store old data within a memory buffer inspired by experience replay often used in reinforcement learning. Another approach is **iCaRL** stores a subset of examplars per class building the proxy of the class mean. iCaRL makes the assumption of a class-incremental setting where the data arriving sequentially is equipped with novel classes. While this approach is widely model agnostic, ...
+Replay methods stores previous raw data or generates pseudo-samples using generative models, replayed within learning the new task to alleviate forgetting. One of the most simple approaches is to store old data within a memory buffer inspired by experience replay often used in reinforcement learning (episodic memory system). Another approach is **iCaRL** stores a subset of examplars per class building the proxy of the class mean. iCaRL makes the assumption of a class-incremental setting where the data arriving sequentially is equipped with novel classes. While this approach is widely model agnostic, ...
 
 
-Although using replay methods is an efficient method to avoid forgetting older tasks it does not only require large memory capacity but also is inefficienct in real world scenarios such as the usage of edge devices where the storage of old data has to be provided <a href="https://arxiv.org/abs/1705.08690">[3]</a>. Another approach is to generate pseudo-data using generative models. Continual learning with deep generative replay by using a dual architecture consisting of a generator to generate new data and a solver.
+Although using replay methods is an efficient method to avoid forgetting older tasks it does not only require large memory capacity but also is inefficienct in real world scenarios such as the usage of edge devices where the storage of old data has to be provided <a href="https://arxiv.org/abs/1705.08690">[3]</a>. Another approach is to generate pseudo-data using generative models. Continual learning with deep generative replay by using a dual architecture consisting of a generator to generate new data and a solver. This idea is inspired by the dual memeory system in the hippocampus and the neocortex. While the hippocampus encodes this recent experience, the memory is consolidated in neocortex through. The idea of generating novel data using a generative adversial networks (GANs) is used to imitate old data. Using this approach a task solver is used to pair the generated data with label. This allows to generate a tuple of input and target signal without having access to the old training data.
+
+
+<img href="/img/posts/continual-learning-0.png">
 
 
 ### c. Paramter isolation methods
