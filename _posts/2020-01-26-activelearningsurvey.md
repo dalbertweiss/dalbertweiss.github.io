@@ -113,5 +113,11 @@ been a clear definition regarding an informative, represenative sampling, inform
 The main distinction between classical active learning and deep active learning relates to the sampling of batches instead
 of instances during each iteration. While the training of deep networks based on single instances is ineffective, it may
 also favor overfitting. Thus, unlike classical active learning explained in section 4.1, the sampling is executed in batches
-such that B = {x∗1, x∗2, ..., x∗b} for which b < N. Thus, to find the parameterized classifier hθ for a batch-aware setting
+such that $$B = {x∗1, x∗2, ..., x∗b}$$ for which $$b < N$$. Thus, to find the parameterized classifier hθ for a batch-aware setting
 it can be written
+
+$$
+\begin{aligned}
+h_\theta = argmax f
+\end{aligned}
+$$
