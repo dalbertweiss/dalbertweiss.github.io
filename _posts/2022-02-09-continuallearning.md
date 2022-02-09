@@ -8,25 +8,26 @@ background: '/img/posts/01.jpg'
 
 # 1. Introduction to Continual Learning
 Within deep learning it is often assumed that all data is simultaneously available where it is assumed that training and testset 
-come from the same distribution. While sequential arriving data has often been tackled by *online learning* has often been referred to when data points enter sequentially, continual learning offers new opportunities when data arrives for *a new task*. This differs in such a way that the assumption is made that the data can be subdevided into *tasks* allowing to break the iid assumption. This setting is called *disjoint task setting* and for classification purposes often called *class-incremental setting*.
+come from the same distribution. While sequential arriving data has often been tackled by *online learning* has often been referred to when data points enter sequentially, continual learning offers new opportunities when data arrives for *a new task*. This differs in such a way that the assumption is made that the data can be subdevided into *tasks* allowing to break the iid assumption. A task referrs to new training data characterized by a new class, a new domain or different output space <a href="https://ieeexplore.ieee.org/document/9349197">[1]</a>. This setting is called *disjoint task setting* and for classification purposes often called *class-incremental setting*.
 
-While continual learning has its fundamentals in robotics, the approaches are often braininspired. For example, the idea of using replay methods to replay previous information inside the memory has been inspired by the processing of data in the hypocampus. The idea is to tackle the *problem of forgetting* which often is encountered when facing new tasks.
-
-
+While continual learning has its fundamentals in robotics, the approaches are often been inspired by biochemical interaction within the brain. For example, the idea of using replay methods to replay previous information inside the memory has been inspired by the processing of data in the hyppocampus. The idea is to tackle the *problem of forgetting* which often is encountered when facing different tasks. In this situation the neural network will adapt to the last learned task while forgetting the previously learned tasks. Due to the shift of the data distribution a phenomenon often referred to as *concept drift* takes place.
 
 # 2. Types of Settings for Continual Learning Approaches
-Replay methods
-Regularization-based methods
-Parameter isolation methods
+Problems encountered during continual learning might be the shifts of data distributions, unbalanced data or the problem of catastrophic forgetting. To encounter this problem different kind of methods have established often subdevided into *replay*, *regularization-based* and *parameter isolation* methods.
+
+### a. Regularization-based methods
 
 
-## a. Regularization-based methods
+### b. Replay methods
+Replay methods stores previous raw data or generates pseudo-samples using generative models, replayed within learning the new task to alleviate forgetting. One of the most simple approaches is to store old data within a memory buffer inspired by experience replay often used in reinforcement learning. Another approach is **iCaRL** stores a subset of examplars per class building the proxy of the class mean. iCaRL makes the assumption of a class-incremental setting where the data arriving sequentially is equipped with novel classes. While this approach is widely model agnostic, ...
 
 
-## b. Replay methods
+Although using replay methods is an efficient method to avoid forgetting older tasks it does not only require large memory capacity but also is inefficienct in real world scenarios such as the usage of edge devices where the storage of old data has to be provided <a href="https://arxiv.org/abs/1705.08690">[3]</a>. Another approach is to generate pseudo-data using generative models. Continual learning with deep generative replay by using a dual architecture consisting of a generator to generate new data and a solver.
 
 
-## Paramter isolation methods
+### c. Paramter isolation methods
+
+
 
 # 3. Application to MNIST dataset
 
