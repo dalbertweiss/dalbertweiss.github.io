@@ -20,7 +20,7 @@ While this experiment indicates that generalization of complex models is not as 
 
 
 To encounter this Prof. Naftali Tishby, hold an interesting <a href="https://www.youtube.com/watch?v=XL07WEc2TRI">talk</a> where relates the capabilities to generalize well with informationtheoretic theory.
-
+https://adityashrm21.github.io/Information-Theory-In-Deep-Learning/
 
 
 # Classical approaches
