@@ -10,7 +10,14 @@ background: '/img/posts/01.jpg'
 Within deep learning it is often assumed that all data is simultaneously available where it is assumed that training and testset 
 come from the same distribution. While sequential arriving data has often been tackled by *online learning* has often been referred to when data points enter sequentially, continual learning offers new opportunities when data arrives for *a new task*. This differs in such a way that the assumption is made that the data can be subdevided into *tasks* allowing to break the iid assumption. A task referrs to new training data characterized by a new class, a new domain or different output space <a href="https://ieeexplore.ieee.org/document/9349197">[1]</a>. This setting is called *disjoint task setting* and for classification purposes often called *class-incremental setting*.
 
-While continual learning has its fundamentals in robotics, the approaches are often been inspired by biochemical interaction within the brain. For example, the idea of using replay methods to replay previous information inside the memory has been inspired by the processing of data in the hyppocampus. The idea is to tackle the *problem of forgetting* which often is encountered when facing different tasks. In this situation the neural network will adapt to the last learned task while forgetting the previously learned tasks. Due to the shift of the data distribution a phenomenon often referred to as *concept drift* takes place.
+While continual learning has its fundamentals in robotics, the approaches are often been inspired by biochemical interaction within the brain. For example, the idea of using replay methods to replay previous information inside the memory has been inspired by the processing of data in the hyppocampus. The idea is to tackle the *problem of forgetting* which often is encountered when facing different tasks. In this situation the neural network will adapt to the last learned task while forgetting the previously learned tasks (plasticity-stability dilemma). Due to the shift of the data distribution a phenomenon often referred to as *concept drift* can take place. 
+
+Generally, one distinguishes between the following continual learning scenarios:
+
+- **Task-Incremental Learing**: For a set of tasks the task identity is known.
+- **Domain-Incremental Learning**: For a set of tasks, the task identity is not provided during testing and does not be inferred.
+- **Class-Incremental Learning**: For a set of tasks the task identity is not provided during testing and needs to be inferred.
+
 
 # 2. Types of Settings for Continual Learning Approaches
 Problems encountered during continual learning might be the shifts of data distributions, unbalanced data or the problem of catastrophic forgetting. To encounter this problem different kind of methods have established often subdevided into *replay*, *regularization-based* and *parameter isolation* methods.
