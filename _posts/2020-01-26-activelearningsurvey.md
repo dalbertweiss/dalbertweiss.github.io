@@ -44,7 +44,7 @@ to deep learning settings such that a reframing of active learning is a prerequi
 representation while labeled instances are cumbersome to obtain. These inconsistencies within the active learning
 pipeline can be subdivided into the following obstacles:
 
-1. Insufficiency in the training of the neural network While classical active learning was defined for training
+1. **Insufficiency in the training of the neural network** While classical active learning was defined for training
 based on small data, deep learning preserve a data hungry baseline [7]. Thus, while active learing in the
 classical sense selects one instance at a time for each training cycle, deep active learning has been adapted
 for collecting batches for each training cycle [15]. Furthermore, while labeled instances have been used
@@ -52,14 +52,14 @@ for training, unlabeled data serve for acquisition. To enhance training capabili
 as semi-supervised learning, unsupervised feature learning [17, ?] and data augmentation [41] yield novel
 possibilites for an adequate training within the deep active learning pipeline.
 
-2. Interplay of the active learning pipeline Current research, as also argued by [20], lack of inconsistencies
+2. **Interplay of the active learning pipeline** Current research, as also argued by [20], lack of inconsistencies
 within the active learning pipeline. A majority of the proposed active learning strategies have focused on
 training classifier based on a fixed feature representation. However, in deep learning the training of the feature
 representation is volatile, where the training of both features and classifier are followed in a joint manner. Thus,
 to avoid divergence, a integration of deep learning models within the active learning framework is inevitable
 [14, 18].
 
-3. Querying based on uncertainty For the applicability of active learning to deep neural networks, one has to
+3. **Querying based on uncertainty** For the applicability of active learning to deep neural networks, one has to
 weight the cost of acquisition in comparison to the cost of labeling. Query strategies in classical AL framework
 concentrate mainly on uncertainty. Although these provide a cheap way of acquisition, they only consider
 exploitation, such that the samples within a query batch are sampled close to the decision boundary and, thus,
@@ -69,7 +69,7 @@ sampled batches to represent a representative surrogate of the enire data. Howev
 with higher computational complexity these might provide a waste of resources in the sense of querying for
 instances giving without additional information [13].
 
-4. Explainability and interpretability The explainablity of deep active learning scenarios compose both the
+4. **Explainability and interpretability** The explainablity of deep active learning scenarios compose both the
 model interpretability as well as the need for explanation of the acquisition of the sampled batches. While
 the former has deserved valuable investigation, there has been no studies that incoorperate it within an active
 learning framework. Especially the later deserves investigation for batch sampling to obtain information of the
@@ -80,7 +80,6 @@ representativenss of the queried batches, specifically concerning the reasoning 
 
 # Classical Active Learning
 ## General Framework
-
 Acquiring labeled data turns out to be costly especially when deep learning is applied. Active Learning is a framework
 allowing for a reduced data acquisition when samples are scarce by actively querying for unlabeled data instances,
 traditionally approached by sampling based on instances it is most uncertain about. Based on unlabeled data instances,
@@ -89,6 +88,8 @@ usually done by choosing a uncertainty sampling strategy, where data instances l
 are more likey being queried. Lets assume a set of data instances $`X = (x_1, ..., x_N)`$ for which $`x_i`$ represents its feature
 vector. Further, lets assume $`Y = (y_1, ..., y_N)`$ being the corresponding set of labels, for which $`y_i`$ represents the label
 for each data instance. As long as the stopping criteria specified by thresh is not reached, the parameter weights θ
-are trained based on the labeled training set L. For this $x$ portrays the most informative data instance chosen by the
+are trained based on the labeled training set L. For this $`x`$ portrays the most informative data instance chosen by the
 sampling strategy φ(x) which is contained within the unnotated data U. After annotation this sample is augmented into
 X . This procedure is repeated until the labeling budget is exhausted [23, ?].
+
+$`a^2+b^2=c^2`$.
