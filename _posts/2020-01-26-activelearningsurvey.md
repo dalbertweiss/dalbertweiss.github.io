@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: "A Survey on Deep Active Learning"
 subtitle: "a review of active learning - a framework that has been heavily used in machine learning when the labelled instance are scarce or cumbersome to obtain"
 date: 2020-01-27 23:45:13 -0400
