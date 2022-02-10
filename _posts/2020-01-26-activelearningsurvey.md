@@ -122,3 +122,33 @@ $$
 h_\theta = argmax f
 \end{aligned}
 $$
+
+To solve this optimization tasks, a valid distinction in choosing the queried batches B relate to their uncertainy and
+diversity. This is largely adapted from the classical methods where the difference becomes evident based on the
+exploration versus exploitation close to the decision boundary. While samples in batches display a large similarity
+within uncertainty methods, diversity tries to capture the full distribution as a surrogate.
+
+
+However, for deep neural networks a clear understanding of uncertainty is not straightforward. Methods used in the
+classical sense such as optimal experiment design [34] would be intractable for Convolutional Neural Networks since it
+requires the computation of the inverse of the Hessian matrix during each training iteration [35]. Another issue is the
+increasing time complexity required of some algorithms with increasing dimensionality. Thus, to resemble uncertainty
+in the sense of neural networks, the softmax response (SR) is used to approximate the activation of an instance.
+
+
+$$
+\begin{aligned}
+  & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
+  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
+  & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
+      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
+      \vdots & \ddots & \vdots \\
+      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
+    \end{array} \right)
+  \left( \begin{array}{c}
+      y_1 \\
+      \vdots \\
+      y_n
+    \end{array} \right)
+\end{aligned}
+$$
