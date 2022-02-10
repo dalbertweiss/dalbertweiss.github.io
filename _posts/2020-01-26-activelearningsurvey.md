@@ -86,14 +86,13 @@ allowing for a reduced data acquisition when samples are scarce by actively quer
 traditionally approached by sampling based on instances it is most uncertain about. Based on unlabeled data instances,
 the learning algorithm may pose queries to an oracle which is usually a human operating as annotator [12]. This is
 usually done by choosing a uncertainty sampling strategy, where data instances located close to the decision boundary
-are more likey being queried. Lets assume a set of data instances $$X = (x_1, ..., x_N)$$ for which $`x_i`$ represents its feature
+are more likey being queried. Lets assume a set of data instances $$X = (x_1, ..., x_N)$$ for which $$x_i$$ represents its feature
 vector. Further, lets assume $`Y = (y_1, ..., y_N)$$ being the corresponding set of labels, for which $`y_i`$ represents the label
-for each data instance. As long as the stopping criteria specified by thresh is not reached, the parameter weights θ
+for each data instance. As long as the stopping criteria specified by thresh is not reached, the parameter weights θ
 are trained based on the labeled training set L. For this $`x`$ portrays the most informative data instance chosen by the
 sampling strategy φ(x) which is contained within the unnotated data U. After annotation this sample is augmented into
 X . This procedure is repeated until the labeling budget is exhausted [23, ?].
 
-$`a^2+b^2=c^2`$.
 
 For active learning, one distinguishes between three different scenarios. Membership query synthesis allows the
 learning algorithm to query any unlabeled data instance in the input space, including the instances provided by the
@@ -136,19 +135,10 @@ increasing time complexity required of some algorithms with increasing dimension
 in the sense of neural networks, the softmax response (SR) is used to approximate the activation of an instance.
 
 
-$$
-\begin{aligned}
-  & \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right)
-  = \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) = \\
-  & (x_1, \ldots, x_n) \left( \begin{array}{ccc}
-      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
-      \vdots & \ddots & \vdots \\
-      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
-    \end{array} \right)
-  \left( \begin{array}{c}
-      y_1 \\
-      \vdots \\
-      y_n
-    \end{array} \right)
-\end{aligned}
-$$
+The following is a math block:
+
+$$ 5 + 5 $$
+
+But next comes a paragraph with an inline math statement:
+
+\$$ 5 + 5 $$
