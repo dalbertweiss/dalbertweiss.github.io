@@ -91,10 +91,11 @@ are more likey being queried. Lets assume a set of data instances
 <img src="https://render.githubusercontent.com/render/math?math=x_i"> represents its feature
 vector. Further, lets assume $`Y = (y_1, ..., y_N)$$ being the corresponding set of labels, for which 
 <img src="https://render.githubusercontent.com/render/math?math=y_i"> represents the label
-for each data instance. As long as the stopping criteria specified by thresh is not reached, the parameter weights θ
+for each data instance. As long as the stopping criteria specified by thresh is not reached, the parameter weights <img src="https://render.githubusercontent.com/render/math?math=\theta">
 are trained based on the labeled training set L. For this 
 <img src="https://render.githubusercontent.com/render/math?math=x"> portrays the most informative data instance chosen by the
-sampling strategy φ(x) which is contained within the unnotated data U. After annotation this sample is augmented into
+sampling strategy φ(x) which is contained within the unnotated data <img src="https://render.githubusercontent.com/render/math?math=\mathcal{U}">
+. After annotation this sample is augmented into
 X . This procedure is repeated until the labeling budget is exhausted [23, ?].
 
 
@@ -117,7 +118,8 @@ been a clear definition regarding an informative, represenative sampling, inform
 The main distinction between classical active learning and deep active learning relates to the sampling of batches instead
 of instances during each iteration. While the training of deep networks based on single instances is ineffective, it may
 also favor overfitting. Thus, unlike classical active learning explained in section 4.1, the sampling is executed in batches
-such that $$B = {x∗1, x∗2, ..., x∗b}$$ for which <img src="https://render.githubusercontent.com/render/math?math=b<N">. Thus, to find the parameterized classifier <img src="https://render.githubusercontent.com/render/math?math=h_\theta"> for a batch-aware setting
+such that <img src="https://render.githubusercontent.com/render/math?B={x^*_1,x^*_2,...,x^*_b"> for 
+which <img src="https://render.githubusercontent.com/render/math?math=b<N">. Thus, to find the parameterized classifier <img src="https://render.githubusercontent.com/render/math?math=h_\theta"> for a batch-aware setting
 it can be written
 
 $$
@@ -139,7 +141,34 @@ increasing time complexity required of some algorithms with increasing dimension
 in the sense of neural networks, the softmax response (SR) is used to approximate the activation of an instance.
 
 
+### Choice of batch-aware acquisition function
+The design of the appropriate acquisition function is decisive in terms of the minimization of the labeling cost, playing
+a crucial role in the success of the active learning framework. Hence, it is of no surprise that strong emphasis relate to
+finding the suiting query strategy. For this we distinguish broadly between uncertainty-based, diversity-based and a
+hybrid approach. Although the decision boundary is not tractable for deep networks, we refer to figure 2 which should
+give a better understanding between those two approaches. Besides these, we also mention other approaches that do not
+inclose within this division.
 
+**Uncertainty-based Methods.** Uncertainty-based methods represent the most studied query strategies due to its
+computational simplicity. Although these has been popular for traditional machine learning models, it’s not easy to
+apply to deep learning since the understanding of uncertainty is not intuitive [35].
+Numerous studies have measured the uncertainty of neural networks according to the softmax response based on the
+models outputs. [18] approach this by adapting this to multi-view uncertainty by applying an additional softmax layer
+on top of each hidden layer. Afterwards conventional heuristics such as entropy [24], least confidence [37] and margin
+sampling [38] can be applied. Fusion of the overall model uncertainty is obtained by calculation of an adaptive weighted
+combination. Even though these show to be efficient in case of computational effort, they do not always show good
+performance.
+Instead Bayesian Neural Networks have become popular technique by providing a distribution of their output parameters.
+To allow for inference, an integration of all possible parameters is executed, leading to an ensemble of networks
+contributing to the output [10, 41]. For this to be tractable, Monte Carlo dropout is used where dropout is applied
+multiple times to approximate the model posterior <img src="https://render.githubusercontent.com/render/math?math=p(\omega|\mathcal{L}"> based on the summation of the outputs. For this dropout is
+directly applied at the predicting output. Although the real parameter distribution is unknown, based on the assumption
+that they belong to a Bernoulli distribution, the Monte Carlo integration allow for an approximation of the posterior.
+Acoordingly, for <img src="https://render.githubusercontent.com/render/math?math=T"> trained neural networks we can approximate
 
-
+$$
+\begin{aligned}
+p(y=c|x,L)
+\end{aligned}
+$$
 

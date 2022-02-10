@@ -48,7 +48,7 @@ Although using replay methods is an efficient method to avoid forgetting older t
 
 ![image info](../img/posts/continual-learning-0.png)
 
-![Autoencoder architecture]({{ '../img/posts/continual-learning-0.png' | relative_url }})
+![Autoencoder architecture]({{ 'img/posts/continual-learning-0.png' | relative_url }})
 {: style="width: 100%;" class="center"}
 *Fig. 1. Illustration of autoencoder model architecture.*
 
