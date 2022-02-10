@@ -6,13 +6,17 @@ date: 2020-01-27 23:45:13 -0400
 background: '/img/posts/01.jpg'
 ---
 
-# 1. Introduction to Continual Learning
-Within deep learning it is often assumed that all data is simultaneously available where it is assumed that training and testset 
-come from the same distribution. While sequential arriving data has often been tackled by *online learning* has often been referred to when data points enter sequentially, continual learning offers new opportunities when data arrives for *a new task*. This differs in such a way that the assumption is made that the data can be subdevided into *tasks* allowing to break the iid assumption. A task referrs to new training data characterized by a new class, a new domain or different output space <a href="https://ieeexplore.ieee.org/document/9349197">[1]</a>. This setting is called *disjoint task setting* and for classification purposes often called *class-incremental setting*.
+Continual learning is a new branch within deep learning which tries to infer on new tasks based on previously aquired knowledge. 
 
-    Given a sequence of supervised learning tasks T=() the aim is to learn a system that performs well on every new task while not forgetting previously acquired knowledge.
+
+# 1. Introduction to Continual Learning
+Within deep learning it is often assumed that all data is simultaneously available where it is assumed that training and testset come from the same distribution. While sequential arriving data has often been tackled by *online learning* has often been referred to when data points enter sequentially, continual learning offers new opportunities when data arrives for *a new task*. This differs in such a way that the assumption is made that the data can be subdevided into *tasks* allowing to break the iid assumption. A task referrs to new training data characterized by a new class, a new domain or different output space <a href="https://ieeexplore.ieee.org/document/9349197">[1]</a>. This setting is called *disjoint task setting* and for classification purposes often called *class-incremental setting*.
+
+> **Definition (task):_** A tasks is an abstract representation for a learning experience characterized by a unique task label <img src="https://render.githubusercontent.com/render/math?math=t"> where the target funciont is given by the objective.
 
 While continual learning has its fundamentals in robotics, the approaches are often been inspired by biochemical interaction within the brain. For example, the idea of using replay methods to replay previous information inside the memory has been inspired by the processing of data in the hyppocampus. The idea is to tackle the *problem of forgetting* which often is encountered when facing different tasks. In this situation the neural network will adapt to the last learned task while forgetting the previously learned tasks (plasticity-stability dilemma). Due to the shift of the data distribution a phenomenon often referred to as *concept drift* can take place. 
+
+> **Definition (catastrophic forgetting):_**  Given a sequence of n supervised learning tasks <img src="https://render.githubusercontent.com/render/math?math=T=(T_1,...,T_n)">, the aim is to learn a system that performs well on every new task while not forgetting previously acquired knowledge.
 
 Generally, one distinguishes between the following continual learning scenarios:
 
