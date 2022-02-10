@@ -135,10 +135,5 @@ increasing time complexity required of some algorithms with increasing dimension
 in the sense of neural networks, the softmax response (SR) is used to approximate the activation of an instance.
 
 
-The following is a math block:
-
-$$ 5 + 5 $$
-
-But next comes a paragraph with an inline math statement:
-
-\$$ 5 + 5 $$
+The following is a math block: $$ 5 + 5 $$
+But next comes a paragraph with an inline math statement: \$$ 5 + 5 $$
