@@ -86,10 +86,14 @@ allowing for a reduced data acquisition when samples are scarce by actively quer
 traditionally approached by sampling based on instances it is most uncertain about. Based on unlabeled data instances,
 the learning algorithm may pose queries to an oracle which is usually a human operating as annotator [12]. This is
 usually done by choosing a uncertainty sampling strategy, where data instances located close to the decision boundary
-are more likey being queried. Lets assume a set of data instances $$X = (x_1, ..., x_N)$$ for which $$x_i$$ represents its feature
-vector. Further, lets assume $`Y = (y_1, ..., y_N)$$ being the corresponding set of labels, for which $`y_i`$ represents the label
+are more likey being queried. Lets assume a set of data instances 
+<img src="https://render.githubusercontent.com/render/math?math=\mathcal{X} = (x_1, ..., x_N)"> for which 
+<img src="https://render.githubusercontent.com/render/math?math=x_i"> represents its feature
+vector. Further, lets assume $`Y = (y_1, ..., y_N)$$ being the corresponding set of labels, for which 
+<img src="https://render.githubusercontent.com/render/math?math=y_i"> represents the label
 for each data instance. As long as the stopping criteria specified by thresh is not reached, the parameter weights θ
-are trained based on the labeled training set L. For this $`x`$ portrays the most informative data instance chosen by the
+are trained based on the labeled training set L. For this 
+<img src="https://render.githubusercontent.com/render/math?math=x"> portrays the most informative data instance chosen by the
 sampling strategy φ(x) which is contained within the unnotated data U. After annotation this sample is augmented into
 X . This procedure is repeated until the labeling budget is exhausted [23, ?].
 
@@ -113,7 +117,7 @@ been a clear definition regarding an informative, represenative sampling, inform
 The main distinction between classical active learning and deep active learning relates to the sampling of batches instead
 of instances during each iteration. While the training of deep networks based on single instances is ineffective, it may
 also favor overfitting. Thus, unlike classical active learning explained in section 4.1, the sampling is executed in batches
-such that $$B = {x∗1, x∗2, ..., x∗b}$$ for which $$b < N$$. Thus, to find the parameterized classifier hθ for a batch-aware setting
+such that $$B = {x∗1, x∗2, ..., x∗b}$$ for which <img src="https://render.githubusercontent.com/render/math?math=b<N">. Thus, to find the parameterized classifier <img src="https://render.githubusercontent.com/render/math?math=h_\theta"> for a batch-aware setting
 it can be written
 
 $$
@@ -142,7 +146,6 @@ test $$ x_i $$
 The following is a math block:$$ x_i $$
 
 
-<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 
 
-![formula](https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1)
+
