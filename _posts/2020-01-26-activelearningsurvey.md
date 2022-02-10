@@ -161,14 +161,186 @@ performance.
 Instead Bayesian Neural Networks have become popular technique by providing a distribution of their output parameters.
 To allow for inference, an integration of all possible parameters is executed, leading to an ensemble of networks
 contributing to the output [10, 41]. For this to be tractable, Monte Carlo dropout is used where dropout is applied
-multiple times to approximate the model posterior <img src="https://render.githubusercontent.com/render/math?math=p(\omega|\mathcal{L}"> based on the summation of the outputs. For this dropout is
+multiple times to approximate the model posterior <img src="https://render.githubusercontent.com/render/math?math=p(\omega|\mathcal{L})"> based on the summation of the outputs. For this dropout is
 directly applied at the predicting output. Although the real parameter distribution is unknown, based on the assumption
 that they belong to a Bernoulli distribution, the Monte Carlo integration allow for an approximation of the posterior.
 Acoordingly, for <img src="https://render.githubusercontent.com/render/math?math=T"> trained neural networks we can approximate
 
 $$
 \begin{aligned}
-p(y=c|x,L)
+p(y=c|x,L) = 
 \end{aligned}
 $$
 
+where <img src="https://render.githubusercontent.com/render/math?math=c"> is the class category and <img src="https://render.githubusercontent.com/render/math?math=\omega"> represent the model parameters, respectively. Integrating Bayesian idea into
+uncertainty acquisition function leads to [10]:
+
+$$
+\begin{aligned}
+H = -\sum_c \frac{1}{T} 
+\end{aligned}
+$$
+
+In Baysian Active Learning by Disagreement (BALD) the goal is to maximize the mutual information between the prediction and model posterior:
+
+
+Maximizing the mutal information implies that the entropy H[y | x,L] has to be of high value corresponding to a high uncertainty of the models prediction. Further, the expected value of entropy is low when it is certain based on the model parameters drawn from the posterior. BatchBALD provides an extension of BALD by acquiring batches of instances at once, thus, leading to a reformulation of
+
+where b represents the batch of data points and (y1, ..., yb) and (x1, ..., xb) are abbreviated by y1:b and x1:b due to
+writing purposes.
+While bayesian methods have been studied for uncertainty sampling, a further choice of acquisition has been subjected
+to semi-supervised methods. Generative Adversarial Active Learning (GAAL) uses generative models to synthesize
+instances based on uncertainty during each AL cycle. For this, within the minimization of the optimization problem the
+instance of the pool is replaced by a generator. Then the objective function is optimized based on gradient descent.
+While tested for both MNIST and CIFAR-10 dataset, it performs less good than random acquisition which can be
+reasoned by sampling bias [?, 36, ?].
+A similar approach for generating uncertainty-based samples based on generative models have been proposed based
+on generating Adversarial Sampling for Active Learning (ASAL). This GAN-based method generates and retrieves
+samples for annotation based on similarity for multi-class classification problems [?]. In comparison to DCGAN bein
+used in GAAL, they replace it by a Wasserstein GAN achieving better results. [?] report that reasons for the weaker
+performance of GAAL relate to the identification of labels of generated images can be difficult to manage.
+
+
+
+**Diversity-based Methods** Diversity-based methods select data points diversily throughout the feature space, compensating the lack of exploration within uncertainty-based methods. This idea is contratry to the idea of uncertainty
+sampling and has usually been tackled by geometric approaches. This is approached by taking a set of selected samples,
+usually referred to as core set, to represent the distribution of the feature space of the entire training set [11, 12]. For
+this usually the batch size is increased to avoid for the sampling bias problem.
+The most renowned approach defined active learning as a coreset selection problem where the selection of a subset
+of data instances from a model trained to achieve the same performance as the model on the entirely available data
+instances. For this the upper bound of the loss function is minimized, proven to be equivalent to the k-center cluster problem visualized in figure 3. However, since this describes a NP-hard problem, a discrete greedy optimazation
+algorithm is used to solve it in a P-hard manner [12]. However, this usually required the computation of a large
+distance matrix on the unlabeled dataset, leading to high computational complexity [20]. Futher, the coreset approach is
+particularly of a bad choice when the unlabeled pool is large with simulatenously having a small query batch [13].
+Farthest-First Compression (FF-Comp) proposes a compression scheme that uses farthest-first traversals in the space of
+neural activation over a representation layer to query contiguous instances from the pool [11]. Inspired by the coreset
+approach, this allows to retrieve a 2-approximation algorithm of the k-center problem.
+Other diversity approaches try to incoorperate the unlabeled data directly. For this [15] clusters the unlabeled data pool
+U based on k-means algorithm, choosing instances located close to the cluster center.
+
+
+
+**Hybrid approach** While uncertainty-based method sample close to the decision boundary, diversity-based methods
+allow to query more explorative instances with the cost of being more prone for the selection of outliers. However,
+while uncertainty lacks the ability to capture the distribution of the data, diversity metohds might not take might lack
+to consider the task itself and, thus, lead to redundant sampling. To compensate these drawbacks, there have been
+approaches to combine both of them.
+Wasserstein Adversarial Active Learning (WAAL) unites uncertainty and diversity by formulating active learning as
+a distribution matching problem [39]. They show that for encapturing diversity, the Wasserstein distance is a better
+metric than the H-divergence usually used for measuring diversity of a query batch. For this WAAL in comprises of
+two steps, namely a min-max optimization for the DNN parameters and a query batch selection. In comparison to the
+diversity-based methods based on core-sets and k-Median [12], WAAL shows a much faster query time, which can be
+explained with them requiring the computation of the feature space [39].
+Task-Aware Variational Adversarial Active Learning (TA-VAAL) [40] integrating the loss prediction module and the
+concept of RankCGAN into Variational Adversarial Active Learning (VAAL). For this the conditional VAE (cVAE) is
+joined with a rank variable while the task learner is equiped with a ranker passing the loss rank information to the rank
+variable in the cVAE. While considering both labeled and unlabeled data for training this, the convince with a higher
+performance when the hybdrid method with standard methods based on uncertainty or diversity [40].
+Batch Active learning by Diverse Gradient Embedding (BADGE) incoorparates uncertainty and diversity without tuning
+another hyperparameter by sampling groups of points that are disparate and high magnitude in a (hallucinated) gradient
+space. This is accompanied by a two step process entailing a gradient embedding and a sampling step. For this model
+uncertainty is reflected by the difference in the gradient of the loss. For the assumption is made that when the label of
+an instance induces a large gradent of the loss this linked with high model uncertainty. Thus, the gradient embedding is appropriate measure for uncertainty where a minimal norm of the gradient embedding is assosciated with a low
+uncertainty. Within the gradient embedding step the label of the instance of the current model is computed folodg by
+the calculation of the gradient of the loss with respect to the parameters of the last layer of the network. Afterwards a
+sampling step is executed for which a set of points are selected via k-MEANS++ initialisation acting as a workaround
+for k-Determinantal Point Process (k-DPP) allowing to select diverse batches of high magnitude without defining an
+additional hyperparameter compensating between uncertainty and diversity samples.
+
+
+## 5.2 Model Trainingg
+This section addresses the second point mentioned within section 2. While active learning relies on small amount of
+labeled instances, deep learning models are known for being data-hungry. To leverage this problem, strategies were
+proposed that allow for compensating reduced training data [24][?][?]. Conventional model training in active learning
+solely evolves based on labeled data instances, resulting in unused resources in terms of neglecting the existence of
+unlabled data instances. To increase the number of available data during the training process and, thus, train the neural
+network architecture to its full extension, methods have been proposed to enhance the training of the model within the
+loop.
+The Cost-effective active learning (CEAL) strategy does so by including instances of high confidence within the training
+by providing them with pseudo-labels. These pseudo-labels are inferred based on the networks prediction and has the
+advantage of not being provided with additional labeling costs in terms of queries. However, CEAL is supplied with
+another hyperparameter thresholding the prediction’s confidences of the network. Under the circumstance, that the
+hyperparameter is falsely adjusted, it can lead to distortions of the label of the training set [14].
+Further enlargement of the training set has been proposed by data augmentation using Generative Adversarial Networks.
+Generative adversarial active learning (GAAL) generates novel samples with the aim of generating samples with an
+addition information gain [36]. However, random data augmentation is not a warranty for an information gain and
+could thus be of no additional benefit while wasting computational resources. Furthermore, it is limited by choosing
+simple heuristics since these will be used within the generative model. However, it has been shown that these do not
+perform well in a deep active learning setting [10, 41]. For this reason [41] introduced Bayesian Generative Active Deep
+Learning (BGADL). While [36] train both generator and classifier disjointly, [41] incoorporates the generative and
+classification model within one step. For this the idea of GAAL is extended by introducing a variational autoencoder
+generative adversarial network (VAE-GAN) in which both Variational Autoencoder (VAE) and GAN are linked by a
+VAE decoder. The VAE decoder represents the generator of the GAN model. Opposed to these approaches, DeepFool
+Active Learning (DFAL) tries to use a margin-based approach by sampling for their adversarial attacks by taking not
+only the unlabeled samples into regard but also its adversarial counterpart [?].
+[42] point out that tradition techniques do not scale well to deep neural networks. Further, they argue that geometric
+approaches such as the core-set technique suffer of the distance concentration phenomenon and do not scale well when
+the number of classes increase. To overcome this issue, they propose Variational Adversarial Active Learning (VAAL)
+to learn a lower dimension of the latent represenation on both labeled and unlabeled data based on a semi-supervised
+strategy. A variational autoenconder (VAE) is trained to learn the distribution of the labeled data, serving to fool the
+discriminator in an adversarial network that the samples belong to the labeled data. Meanwhile the discriminator is
+trained to differentiate between labeled and unlabeled data. This method shows to be task agnostic since it does not
+depend on the task itself.
+Similarly, [?] use conditional Generative Adversarial Networks (cGAN) to generate realistic images used during
+training. While both the approaches of [41] and [42] use only the labeled data for training, [43] proposed a strategy to
+entail both unlabeled and labeled data within the training process. [43] replaces supervised learning by suggesting an
+semi-supervised learning approach by co-training on both labeled and unlabeled data instances. This is approached by
+embedding GAN within the classifier to infer the class labels of the generated images. [17] try out a similar approach
+bei using both unsupervised and semi-supervised learning to integrate both labeled and unlabeled instances within the
+training process. While unsupervised learning is used at the start of the active learning pipeline for model initialization
+during each cycle, semi-supervised learning serve for training on all the data simultaneously. As they show within their
+finding, this apporach yielded a significant improvement of the performance.
+Opposed to the mentioned methods, iNAS has been introduced, arguing while most reasearch has been dedicated to the
+design of the appropriate acquisition function, the architecture of the neural network is assumed to be well-suited for
+the active learning. To compensate this problem [11] proposed use a large labeled training set for neural architecture optimization and use active learning over the long tail. Instead [44] introduce incremental neural architecture search
+(iNAS) which uses a neural architecture search (NAS) for dynamically searching for the optimal architecture on-the-fly
+integrated within the active learning pipeline. To avoid overfitting within the initial stages, iNAS starts with a small
+capacity incrementally increased with the rise in labeled data. They are able to show that unlike with a preassumed
+architecture iNAS allows to perform better than the fixed one [44].
+
+## 5.3 Explainability of deep active models
+ecent progresses have tried to enhance the explainability and interpretablity of active learning by developing local
+explainers that allow to specify the reason for a certain query. Local Interpretable Model-agnostic Explanations
+framework (LIME) has been used in conjunction with active learning to justify the reason of a queried instance. LIME
+allows to make faithful explanations by producing pertubations of an instance and interprets the results based on its
+hypothetical neighborhood. This allows the interpretation of the uncertainty of each point [45]. However, [21] argue
+although this approach is model agnostic, it lacks the ability of the local model being a good approximation of the
+classifier. Instead they propose self-explainable neural networks (SENN) which offer explainibility of their prediction.
+
+# 7 Open research questions
+Recent successes of deep active learning convey novel topics of research for which most preassumptions made have been left uncommented. For this reason, we want to point out on open research questions which have to be tackled within future academia:
+
+
+Subsampling While algorithms such as [12] [?] incoorperate training based on batches, for instance within
+pool-based scenarios [12], it is neither clear how these batches should be chosen nor how the pool of data
+should be collected. This is still an open research question which is tacitly accepted. One vanilla option we
+propose, is to collected a the batch by single instances at a time and continue with the active learning cycle as
+soon as the full batch size is obtained. Similar possibility provides the collection of a pool of data by single
+instance storage with continuing as the pool has been properly obtained.
+Deep Model Architecture When active learning is applied a model a tuned deep model architecture is assumed
+for granted. Usually, the active learning model has been imposed on this previous optimized architecture [11].
+[?] propose a reverse approach in which the deep model architecture is learned on-the-fly. Keeping this in
+mind, this might pose further difficulties when selecting the appropriate acquisiton function for one’s problem.
+Semi-supervised Training While
+Class inbalance Current works have mainly been tested on freely available datasets showing high class
+balance. However, in natural circumstances one is faced with class inbalance which can cause overfitting of
+minor classes. For this especially active learning provides in interesting setting which has only been taken into
+regard within a few studies. In [?] fairness was
+Budget of annotation When deciding for the acquisition function to be used in active learning, one has to
+take the budget for labeling into regard. This is specifically to mention when comparing uncertainty and
+diversity-based methods for querying. One reason for the establishment of more uncertainty-based query
+strategies can be related to it being less computational expensive. While this might drive further progress of
+their establishment, these do not compensate for the recognition of the distribution of the data.
+Informativeness and representativeness While uncertainty-based methods often encounter sampling bias,
+the sampled batch is not representative for the distribution of the unlabeled data [?]. On the counterside, while diversity-based methods allow for compensation of this problem, they results in an increasing computational
+complexity. While [12] and [?] are of the opinion that queries should be based on diversity, it has been shown
+that these do not always show better performance [46]. The applicability heavily depends on the selected batch
+size for which smaller batch sizes perform more favourable for uncertainy-methods while larger batches are in
+favour of diversity [13]. Further, the question of choosing the appropriate query strategy heavily depends on
+the computational complexity while being considered low in comparison to the labeling budget.
+Human in the loop iterative manner. However, in practice this becomes infeasible. [?] proposed a framework,
+humans are able to annotate clusters, reducing the number of interactions required.
+
+
+# 8 Conclusion
+Within the survey, a synopsis of current progresses and open questions within deep active learning for spatio-temporal data was given. While current works on fusing active learning with deep learning has been on a rare sight, most of the studies have centered on uncertainty-based sampling. Further, while diversity-based sampling is an active field of research, we point out that the cost of the respective acquistion function should be taken into regard. The main research currently done focuses on optimization of the query strategy. This is largely persuaded that the acquistion function is directly linked to the cost of labeling. For this there is an active discussion of persuing an uncertainty or diversity-based approach. Furthermore, hybrid approaches compensates for each of their weaknessess have be gained recent attention. We persue the establishment of uncertainty based methods since the budget compared to labeling is of primer importance. However, diversity methods are worthwhile mentioning, opening new capabilites for realistically capturing the feature distribution. Thus, this will pose novel challenges for the integration of both approaches.
