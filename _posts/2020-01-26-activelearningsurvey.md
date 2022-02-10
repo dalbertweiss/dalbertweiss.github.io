@@ -140,3 +140,9 @@ But next comes a paragraph with an inline math statement: \[ 5 + 5 \]
 test $$ x_i $$
 
 The following is a math block:$$ x_i $$
+
+
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
+
+
+![formula](https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1)
