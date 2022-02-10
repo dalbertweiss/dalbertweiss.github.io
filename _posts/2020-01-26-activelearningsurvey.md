@@ -138,3 +138,5 @@ in the sense of neural networks, the softmax response (SR) is used to approximat
 The following is a math block: \( x_i \)
 But next comes a paragraph with an inline math statement: \[ 5 + 5 \]
 test $$ x_i $$
+
+The following is a math block:$$ x_i $$
