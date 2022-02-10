@@ -46,6 +46,7 @@ Replay methods stores previous raw data or generates pseudo-samples using genera
 
 Although using replay methods is an efficient method to avoid forgetting older tasks it does not only require large memory capacity but also is inefficienct in real world scenarios such as the usage of edge devices where the storage of old data has to be provided <a href="https://arxiv.org/abs/1705.08690">[3]</a>. Another approach is to generate pseudo-data using generative models. Continual learning with deep generative replay by using a dual architecture consisting of a generator to generate new data and a solver. This idea is inspired by the dual memeory system in the hippocampus and the neocortex. While the hippocampus encodes this recent experience, the memory is consolidated in neocortex through. The idea of generating novel data using a generative adversial networks (GANs) is used to imitate old data. Using this approach a task solver is used to pair the generated data with label. This allows to generate a tuple of input and target signal without having access to the old training data.
 
+![image info](./img/posts/continual-learning-0.png)
 
 ![Autoencoder architecture]({{ '../img/posts/continual-learning-0.png' | relative_url }})
 {: style="width: 100%;" class="center"}
