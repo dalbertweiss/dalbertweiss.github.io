@@ -6,17 +6,17 @@ date: 2020-01-27 23:45:13 -0400
 background: '/img/posts/01.jpg'
 ---
 
-Continual learning is a new branch within deep learning which tries to infer on new tasks based on previously aquired knowledge. 
+Continual learning is a new branch within deep learning which tries to infer on new tasks based on previously aquired knowledge where data becomes incrementally available <a href="https://www.sciencedirect.com/science/article/pii/S0893608019300231">[1]</a>. While in deep learning the assumption is usually made processed data come from the same data distribution, this assumption can be broken in *continual learning settings*. Here the assumption is made that the algorithm can ad
 
 
 # 1. Introduction to Continual Learning
-Within deep learning it is often assumed that all data is simultaneously available where it is assumed that training and testset come from the same distribution. While sequential arriving data has often been tackled by *online learning* has often been referred to when data points enter sequentially, continual learning offers new opportunities when data arrives for *a new task*. This differs in such a way that the assumption is made that the data can be subdevided into *tasks* allowing to break the iid assumption. A task referrs to new training data characterized by a new class, a new domain or different output space <a href="https://ieeexplore.ieee.org/document/9349197">[1]</a>. This setting is called *disjoint task setting* and for classification purposes often called *class-incremental setting*.
+Within deep learning it is often assumed that all data is simultaneously available where it is assumed that training and testset come from the same distribution. While sequential arriving data has often been tackled by *online learning* has often been referred to when data points enter sequentially, continual learning offers new opportunities when data arrives for *a new task*. This differs in such a way that the assumption is made that the data can be subdevided into *tasks* allowing to break the iid assumption. A task referrs to new training data characterized by a new class, a new domain or different output space <a href="https://ieeexplore.ieee.org/document/9349197">[2]</a>. This setting is called *disjoint task setting* and for classification purposes often called *class-incremental setting*.
 
-> **Definition (task):_** A tasks is an abstract representation for a learning experience characterized by a unique task label <img src="https://render.githubusercontent.com/render/math?math=t"> where the target funciont is given by the objective.
+> **Definition (task):** A tasks is an abstract representation for a learning experience characterized by a unique task label <img src="https://render.githubusercontent.com/render/math?math=t"> where the target funciont is given by the objective.
 
 While continual learning has its fundamentals in robotics, the approaches are often been inspired by biochemical interaction within the brain. For example, the idea of using replay methods to replay previous information inside the memory has been inspired by the processing of data in the hyppocampus. The idea is to tackle the *problem of forgetting* which often is encountered when facing different tasks. In this situation the neural network will adapt to the last learned task while forgetting the previously learned tasks (plasticity-stability dilemma). Due to the shift of the data distribution a phenomenon often referred to as *concept drift* can take place. 
 
-> **Definition (catastrophic forgetting):_**  Given a sequence of n supervised learning tasks <img src="https://render.githubusercontent.com/render/math?math=T=(T_1,...,T_n)">, the aim is to learn a system that performs well on every new task while not forgetting previously acquired knowledge.
+> **Definition (catastrophic forgetting):**  Given a sequence of n supervised learning tasks <img src="https://render.githubusercontent.com/render/math?math=T=(T_1,...,T_n)">, the aim is to learn a system that performs well on every new task while not forgetting previously acquired knowledge.
 
 Generally, one distinguishes between the following continual learning scenarios:
 
@@ -31,6 +31,10 @@ Problems encountered during continual learning might be the shifts of data distr
 
 
 ### a. Regularization-based methods
+Regularization based methods allow
+These simple regularization techniques reduce the chance of weights being
+modified, and thus decrease the probability of forgetting.
+
 **Elastic Weight Consolidation** relies on Bayesian learning for which the posterior of the previous task contributes to the prior of the new task. Since the computation of the posterior in deep learning is intractable, an estimate based on the Laplacian approximation is determined. The precision herefore is estimated using the Fisher Information Matrix.
 
 **Incremental Moment Matching (IMM)**
