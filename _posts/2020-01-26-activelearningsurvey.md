@@ -188,17 +188,13 @@ Maximizing the mutal information implies that the entropy <img src="https://rend
 
 $$
 \begin{aligned}
-\mathbb{I}[y_{1:b},\omega | x_{1:b}, \mathcal{L}] = 
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
 \mathbb{I}[y_{1:b},\omega | x_{1:b}, \mathcal{L}] =\mathbb{H}[y_{1:b}|\mathbf{1:b}, \mathcal{L}] - \mathbb_{p(\omega|\mathcal{L})| x_{1:b}, \omega }
 \end{aligned}
 $$
 
-where <img src="https://render.githubusercontent.com/render/math?math=b"> represents the batch of data points and <img src="https://render.githubusercontent.com/render/math?math=(y_1,...,x_b)"> and <img src="https://render.githubusercontent.com/render/math?math=(x_1,...,x_b)"> are abbreviated by <img src="https://render.githubusercontent.com/render/math?math=y_{1:b}"> and <img src="https://render.githubusercontent.com/render/math?math=x_{1:b}]"> due to writing purposes.
+
+
+where <img src="https://render.githubusercontent.com/render/math?math=b"> represents the batch of data points and <img src="https://render.githubusercontent.com/render/math?math=(y_1,...,x_b)"> and <img src="https://render.githubusercontent.com/render/math?math=(x_1,...,x_b)"> are abbreviated by <img src="https://render.githubusercontent.com/render/math?math=y_{1:b}"> and <img src="https://render.githubusercontent.com/render/math?math=x_{1:b}"> due to writing purposes.
 
 While bayesian methods have been studied for uncertainty sampling, a further choice of acquisition has been subjected
 to semi-supervised methods. Generative Adversarial Active Learning (GAAL) uses generative models to synthesize
