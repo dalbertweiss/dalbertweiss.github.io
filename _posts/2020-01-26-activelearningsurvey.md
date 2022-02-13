@@ -185,6 +185,13 @@ $$
 
 Maximizing the mutal information implies that the entropy <img src="https://render.githubusercontent.com/render/math?math=\mathbb{H}[y | \mathbf{x},\mathcal{L}]"> has to be of high value corresponding to a high uncertainty of the models prediction. Further, the expected value of entropy is low when it is certain based on the model parameters drawn from the posterior. BatchBALD provides an extension of BALD by acquiring batches of instances at once, thus, leading to a reformulation of
 
+
+$$
+\begin{aligned}
+\mathbb{I}[y_{1:b},\omega | x_{1:b}, \mathcal{L}] = 
+\end{aligned}
+$$
+
 $$
 \begin{aligned}
 \mathbb{I}[y_{1:b},\omega | x_{1:b}, \mathcal{L}] =\mathbb{H}[y_{1:b}|\mathbf{1:b}, \mathcal{L}] - \mathbb_{p(\omega|\mathcal{L})| x_{1:b}, \omega }
