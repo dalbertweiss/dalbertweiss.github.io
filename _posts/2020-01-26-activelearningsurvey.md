@@ -315,39 +315,44 @@ although this approach is model agnostic, it lacks the ability of the local mode
 classifier. Instead they propose self-explainable neural networks (SENN) which offer explainibility of their prediction.
 
 # 7 Open research questions
-Recent successes of deep active learning convey novel topics of research for which most preassumptions made have been left uncommented. For this reason, we want to point out on open research questions which have to be tackled within future academia:
+ecent successes of deep active learning convey novel topics of research for which most preassumptions made have
+been left uncommented. For this reason, we want to point out on open research questions which have to be tackled
+within future academia:
 
-
-Subsampling While algorithms such as [12] [?] incoorperate training based on batches, for instance within
-pool-based scenarios [12], it is neither clear how these batches should be chosen nor how the pool of data
-should be collected. This is still an open research question which is tacitly accepted. One vanilla option we
-propose, is to collected a the batch by single instances at a time and continue with the active learning cycle as
-soon as the full batch size is obtained. Similar possibility provides the collection of a pool of data by single
-instance storage with continuing as the pool has been properly obtained.
-Deep Model Architecture When active learning is applied a model a tuned deep model architecture is assumed
-for granted. Usually, the active learning model has been imposed on this previous optimized architecture [11].
+**Batch training** Algorithms such as [14] [?] incoorperate training based on batches. Advantages is the
+improved training. However, it is still unclear how these batches should be collected within practice.
+**Pool scenario** Similar things apply as for the previous point mentioned. Most algorithms are specified for
+pool-based scenarios. However, it is not clear how the pool of data should be collected within an active
+learning framework.
+**Deep Model Architecture** When active learning is applied a model a tuned deep model architecture is assumed
+for granted. Usually, the active learning model has been imposed on this previous optimized architecture [15].
 [?] propose a reverse approach in which the deep model architecture is learned on-the-fly. Keeping this in
 mind, this might pose further difficulties when selecting the appropriate acquisiton function for one’s problem.
 Semi-supervised Training While
-Class inbalance Current works have mainly been tested on freely available datasets showing high class
+**Class inbalance** Current works have mainly been tested on freely available datasets showing high class
 balance. However, in natural circumstances one is faced with class inbalance which can cause overfitting of
 minor classes. For this especially active learning provides in interesting setting which has only been taken into
 regard within a few studies. In [?] fairness was
-Budget of annotation When deciding for the acquisition function to be used in active learning, one has to
+**Budget of annotation** When deciding for the acquisition function to be used in active learning, one has to
 take the budget for labeling into regard. This is specifically to mention when comparing uncertainty and
 diversity-based methods for querying. One reason for the establishment of more uncertainty-based query
 strategies can be related to it being less computational expensive. While this might drive further progress of
 their establishment, these do not compensate for the recognition of the distribution of the data.
 Informativeness and representativeness While uncertainty-based methods often encounter sampling bias,
-the sampled batch is not representative for the distribution of the unlabeled data [?]. On the counterside, while diversity-based methods allow for compensation of this problem, they results in an increasing computational
-complexity. While [12] and [?] are of the opinion that queries should be based on diversity, it has been shown
-that these do not always show better performance [46]. The applicability heavily depends on the selected batch
-size for which smaller batch sizes perform more favourable for uncertainy-methods while larger batches are in
-favour of diversity [13]. Further, the question of choosing the appropriate query strategy heavily depends on
-the computational complexity while being considered low in comparison to the labeling budget.
-Human in the loop iterative manner. However, in practice this becomes infeasible. [?] proposed a framework,
+the sampled batch is not representative for the distribution of the unlabeled data [?]. On the counterside, while
+diversity-based methods allow for compensation of this problem, they results in an increasing computational
+complexity. While [14] and [?] are of the opinion that queries should be based on diversity, it has been shown
+that these do not always show better performance [27]. The applicability heavily depends on the selected batch
+size for which smaller batch sizes perform more favourable for uncertainy-methods while larger batches are
+in favour of diversity. Further, the question of choosing the appropriate query strategy heavily depends its
+computational complexity while being considered low in comparison to the labeling budget.
+**Human in the loop** as an iterative manner. However, in practice this becomes infeasible. [?] proposed a framework,
 humans are able to annotate clusters, reducing the number of interactions required.
 
 
 # 8 Conclusion
-Within the survey, a synopsis of current progresses and open questions within deep active learning for spatio-temporal data was given. While current works on fusing active learning with deep learning has been on a rare sight, most of the studies have centered on uncertainty-based sampling. Further, while diversity-based sampling is an active field of research, we point out that the cost of the respective acquistion function should be taken into regard. The main research currently done focuses on optimization of the query strategy. This is largely persuaded that the acquistion function is directly linked to the cost of labeling. For this there is an active discussion of persuing an uncertainty or diversity-based approach. Furthermore, hybrid approaches compensates for each of their weaknessess have be gained recent attention. We persue the establishment of uncertainty based methods since the budget compared to labeling is of primer importance. However, diversity methods are worthwhile mentioning, opening new capabilites for realistically capturing the feature distribution. Thus, this will pose novel challenges for the integration of both approaches.
+Within the survey, a synopsis of current progresses and open questions within deep active learning for spatio-temporal data was given. While current works on fusing active learning with deep learning has been on a rare sight, most of the studies have centered on uncertainty-based sampling. Further, while diversity-based sampling is an active field of research, we point out that the cost of the respective acquistion function should be taken into regard. 
+
+The main research currently done focuses on optimization of the query strategy. This is largely persuaded that the acquistion function is directly linked to the cost of labeling. For this there is an active discussion of persuing an uncertainty or diversity-based approach. 
+
+Furthermore, hybrid approaches compensates for each of their weaknessess have be gained recent attention. We persue the establishment of uncertainty based methods since the budget compared to labeling is of primer importance. However, diversity methods are worthwhile mentioning, opening new capabilites for realistically capturing the feature distribution. Thus, this will pose novel challenges for the integration of both approaches.
