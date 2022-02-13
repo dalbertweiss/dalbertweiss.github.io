@@ -190,7 +190,8 @@ $$
 \mathbb{I}[y_{1:b},\omega | x_{1:b}, \mathcal{L}] =\mathbb{H}[y_{1:b}|\mathbf{1:b}, \mathcal{L}] - \mathbb_{p(\omega|\mathcal{L})| x_{1:b}, \omega }
 \end{aligned}
 $$
-where <img src="https://render.githubusercontent.com/render/math?math=b]"> represents the batch of data points and <img src="https://render.githubusercontent.com/render/math?math=(y_1,...,x_b)]"> and <img src="https://render.githubusercontent.com/render/math?math=(x_1,...,x_b)"> are abbreviated by <img src="https://render.githubusercontent.com/render/math?math=y_{1:b}"> and <img src="https://render.githubusercontent.com/render/math?math=x_{1:b}]"> due to writing purposes.
+
+where <img src="https://render.githubusercontent.com/render/math?math=b"> represents the batch of data points and <img src="https://render.githubusercontent.com/render/math?math=(y_1,...,x_b)"> and <img src="https://render.githubusercontent.com/render/math?math=(x_1,...,x_b)"> are abbreviated by <img src="https://render.githubusercontent.com/render/math?math=y_{1:b}"> and <img src="https://render.githubusercontent.com/render/math?math=x_{1:b}]"> due to writing purposes.
 
 While bayesian methods have been studied for uncertainty sampling, a further choice of acquisition has been subjected
 to semi-supervised methods. Generative Adversarial Active Learning (GAAL) uses generative models to synthesize
@@ -321,18 +322,22 @@ within future academia:
 
 **Batch training** Algorithms such as [14] [?] incoorperate training based on batches. Advantages is the
 improved training. However, it is still unclear how these batches should be collected within practice.
+
 **Pool scenario** Similar things apply as for the previous point mentioned. Most algorithms are specified for
 pool-based scenarios. However, it is not clear how the pool of data should be collected within an active
 learning framework.
+
 **Deep Model Architecture** When active learning is applied a model a tuned deep model architecture is assumed
 for granted. Usually, the active learning model has been imposed on this previous optimized architecture [15].
 [?] propose a reverse approach in which the deep model architecture is learned on-the-fly. Keeping this in
 mind, this might pose further difficulties when selecting the appropriate acquisiton function for one’s problem.
 Semi-supervised Training While
+
 **Class inbalance** Current works have mainly been tested on freely available datasets showing high class
 balance. However, in natural circumstances one is faced with class inbalance which can cause overfitting of
 minor classes. For this especially active learning provides in interesting setting which has only been taken into
 regard within a few studies. In [?] fairness was
+
 **Budget of annotation** When deciding for the acquisition function to be used in active learning, one has to
 take the budget for labeling into regard. This is specifically to mention when comparing uncertainty and
 diversity-based methods for querying. One reason for the establishment of more uncertainty-based query
@@ -346,6 +351,7 @@ that these do not always show better performance [27]. The applicability heavily
 size for which smaller batch sizes perform more favourable for uncertainy-methods while larger batches are
 in favour of diversity. Further, the question of choosing the appropriate query strategy heavily depends its
 computational complexity while being considered low in comparison to the labeling budget.
+
 **Human in the loop** as an iterative manner. However, in practice this becomes infeasible. [?] proposed a framework,
 humans are able to annotate clusters, reducing the number of interactions required.
 
