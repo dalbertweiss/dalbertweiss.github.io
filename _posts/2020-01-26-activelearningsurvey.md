@@ -178,13 +178,14 @@ Disagreement (BALD) the goal is to maximize the mutual information between the p
 
 $$
 \begin{aligned}
-
+\mathbb{I}[y,\omega | \mathbf{x}, \mathcal{L}] = \mathbb{H[y|\mathbf{x},\mathcal{L}]}-
+\mathbb{E}_{p(\omega|\mathcal{L})}[\mathbb{H}(y|\matbf{x},\omega)] 
 \end{aligned}
 $$
 
+Maximizing the mutal information implies that the entropy H[y | x,L] has to be of high value corresponding to a high uncertainty of the models prediction. Further, the expected value of entropy is low when it is certain based on the model parameters drawn from the posterior. BatchBALD provides an extension of BALD by acquiring batches of instances at once, thus, leading to a reformulation of
 
-Integrating Bayesian idea into
-uncertainty acquisition function leads to [10]:
+
 
 $$
 \begin{aligned}

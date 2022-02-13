@@ -6,7 +6,7 @@ date: 2020-01-27 23:45:13 -0400
 background: '/img/posts/01.jpg'
 ---
 
-Continual learning is a new branch within deep learning which tries to infer on new tasks based on previously aquired knowledge where data becomes incrementally available <a href="https://www.sciencedirect.com/science/article/pii/S0893608019300231">[1]</a>. While in deep learning the assumption is usually made processed data come from the same data distribution, this assumption can be broken in *continual learning settings*. Here the assumption is made that the algorithm can ad
+Continual learning is a new branch within deep learning which tries to infer on new tasks based on previously aquired knowledge where data becomes incrementally available <a href="https://www.sciencedirect.com/science/article/pii/S0893608019300231">[1]</a>. While in deep learning the assumption is usually made processed data come from the same data distribution, this assumption can be broken in *continual learning settings*. Here, the algorithm can adapt to novel information with reaching the situation of forgetting previously acquired knowledge. This so called *learning without forgetting* is an active research usually accomplished by replaying old memory within the new learning task. 
 
 
 # 1. Introduction to Continual Learning
