@@ -179,38 +179,33 @@ Disagreement (BALD) the goal is to maximize the mutual information between the p
 $$
 \begin{aligned}
 \mathbb{I}[y,\omega | \mathbf{x}, \mathcal{L}] = \mathbb{H[y|\mathbf{x},\mathcal{L}]}-
-\mathbb{E}_{p(\omega|\mathcal{L})}[\mathbb{H}(y|\matbf{x},\omega)] 
+\mathbb{E}_{p(\omega|\mathcal{L})}[\mathbb{H}(y|\mathbf{x},\omega)] 
 \end{aligned}
 $$
 
-Maximizing the mutal information implies that the entropy H[y | x,L] has to be of high value corresponding to a high uncertainty of the models prediction. Further, the expected value of entropy is low when it is certain based on the model parameters drawn from the posterior. BatchBALD provides an extension of BALD by acquiring batches of instances at once, thus, leading to a reformulation of
-
-
+Maximizing the mutal information implies that the entropy <img src="https://render.githubusercontent.com/render/math?math=\mathbb{H}[y | \mathbf{x},\mathcal{L}]"> has to be of high value corresponding to a high uncertainty of the models prediction. Further, the expected value of entropy is low when it is certain based on the model parameters drawn from the posterior. BatchBALD provides an extension of BALD by acquiring batches of instances at once, thus, leading to a reformulation of
 
 $$
 \begin{aligned}
-H = -\sum_c \frac{1}{T} 
+\mathbb{I}[y_{1:b},\omega | x_{1:b}, \mathcal{L}] =\mathbb{H}[y_{1:b}|\mathbf{1:b}, \mathcal{L}] - \mathbb_{p(\omega|\mathcal{L})| x_{1:b}, \omega }
 \end{aligned}
 $$
+where <img src="https://render.githubusercontent.com/render/math?math=b]"> represents the batch of data points and <img src="https://render.githubusercontent.com/render/math?math=(y_1,...,x_b)]"> and <img src="https://render.githubusercontent.com/render/math?math=(x_1,...,x_b)"> are abbreviated by <img src="https://render.githubusercontent.com/render/math?math=y_{1:b}"> and <img src="https://render.githubusercontent.com/render/math?math=x_{1:b}]"> due to writing purposes.
 
-In Baysian Active Learning by Disagreement (BALD) the goal is to maximize the mutual information between the prediction and model posterior:
-
-
-Maximizing the mutal information implies that the entropy H[y | x,L] has to be of high value corresponding to a high uncertainty of the models prediction. Further, the expected value of entropy is low when it is certain based on the model parameters drawn from the posterior. BatchBALD provides an extension of BALD by acquiring batches of instances at once, thus, leading to a reformulation of
-
-where b represents the batch of data points and (y1, ..., yb) and (x1, ..., xb) are abbreviated by y1:b and x1:b due to
-writing purposes.
 While bayesian methods have been studied for uncertainty sampling, a further choice of acquisition has been subjected
 to semi-supervised methods. Generative Adversarial Active Learning (GAAL) uses generative models to synthesize
 instances based on uncertainty during each AL cycle. For this, within the minimization of the optimization problem the
 instance of the pool is replaced by a generator. Then the objective function is optimized based on gradient descent.
 While tested for both MNIST and CIFAR-10 dataset, it performs less good than random acquisition which can be
-reasoned by sampling bias [?, 36, ?].
+reasoned by sampling bias [?, 12, 13].
 A similar approach for generating uncertainty-based samples based on generative models have been proposed based
 on generating Adversarial Sampling for Active Learning (ASAL). This GAN-based method generates and retrieves
-samples for annotation based on similarity for multi-class classification problems [?]. In comparison to DCGAN bein
-used in GAAL, they replace it by a Wasserstein GAN achieving better results. [?] report that reasons for the weaker
-performance of GAAL relate to the identification of labels of generated images can be difficult to manage.
+samples for annotation based on similarity for multi-class classification problems [13]. In comparison to DCGAN bein
+used in GAAL, they replace it by a Wasserstein GAN achieving better results. [13] report that reasons for the weaker
+performance of GAAL relate to the identification of labels of generated images can be difficult to manage
+
+![image-in-text](/img/posts/activelearning-1.PNG)
+
 
 
 
@@ -260,7 +255,7 @@ for k-Determinantal Point Process (k-DPP) allowing to select diverse batches of 
 additional hyperparameter compensating between uncertainty and diversity samples.
 
 
-## 5.2 Model Trainingg
+## 5.2 Model Training
 This section addresses the second point mentioned within section 2. While active learning relies on small amount of
 labeled instances, deep learning models are known for being data-hungry. To leverage this problem, strategies were
 proposed that allow for compensating reduced training data [24][?][?]. Conventional model training in active learning
