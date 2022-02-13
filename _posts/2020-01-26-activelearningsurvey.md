@@ -189,7 +189,8 @@ Maximizing the mutal information implies that the entropy <img src="https://rend
 $$
 \begin{aligned}
 \mathbb{I}[y_{1:b},\omega | x_{1:b}, \mathcal{L}] =
-\mathbb{H}[y_{1:b}|x_{1:b}, \mathcal{L}] - \mathbb_{p(\omega|\mathcal{L})| x_{1:b}, \omega }
+\mathbb{H}[y_{1:b}|x_{1:b}, \mathcal{L}] - \mathbb{E}_{p(\omega|\mathcal{L})
+\mathbb{H}(y_{1:b}| x_{1:b}, \omega )]
 \end{aligned}
 $$
 
