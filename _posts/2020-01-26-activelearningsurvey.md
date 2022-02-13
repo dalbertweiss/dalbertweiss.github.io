@@ -169,11 +169,21 @@ Acoordingly, for <img src="https://render.githubusercontent.com/render/math?math
 
 $$
 \begin{aligned}
-p(y=c|x,L) = 
+p(y=c|x,L) = \sum p(y=c|x,\omega)p(\omega |L) d\omega = \frac{1}{T} \sum_{i=1}^T p(y=c|x,\hat{\omega}_t)
 \end{aligned}
 $$
 
-where <img src="https://render.githubusercontent.com/render/math?math=c"> is the class category and <img src="https://render.githubusercontent.com/render/math?math=\omega"> represent the model parameters, respectively. Integrating Bayesian idea into
+where <img src="https://render.githubusercontent.com/render/math?math=c"> is the class category and <img src="https://render.githubusercontent.com/render/math?math=\omega"> represent the model parameters, respectively. In Baysian Active Learning by
+Disagreement (BALD) the goal is to maximize the mutual information between the prediction and model posterior:
+
+$$
+\begin{aligned}
+
+\end{aligned}
+$$
+
+
+Integrating Bayesian idea into
 uncertainty acquisition function leads to [10]:
 
 $$
