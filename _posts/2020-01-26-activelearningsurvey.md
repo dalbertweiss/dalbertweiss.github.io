@@ -89,7 +89,7 @@ usually done by choosing a uncertainty sampling strategy, where data instances l
 are more likey being queried. Lets assume a set of data instances 
 <img src="https://render.githubusercontent.com/render/math?math=\mathcal{X} = (x_1, ..., x_N)"> for which 
 <img src="https://render.githubusercontent.com/render/math?math=x_i"> represents its feature
-vector. Further, lets assume <img src="https://render.githubusercontent.com/render/math?math=Y=(y_1,...,y_N"> being the corresponding set of labels, for which 
+vector. Further, lets assume <img src="https://render.githubusercontent.com/render/math?math=Y=(y_1,...,y_N)"> being the corresponding set of labels, for which 
 <img src="https://render.githubusercontent.com/render/math?math=y_i"> represents the label
 for each data instance. As long as the stopping criteria specified by thresh is not reached, the parameter weights <img src="https://render.githubusercontent.com/render/math?math=\theta">
 are trained based on the labeled training set <img src="https://render.githubusercontent.com/render/math?math=\mathcal{L}">. For this 
@@ -148,7 +148,7 @@ hybrid approach. Although the decision boundary is not tractable for deep networ
 give a better understanding between those two approaches. Besides these, we also mention other approaches that do not
 inclose within this division.
 
-![image info](./img/posts/activelearning-0.png)
+![image info](../img/posts/activelearning-0.PNG)
 
 **Uncertainty-based Methods.** Uncertainty-based methods represent the most studied query strategies due to its
 computational simplicity. Although these has been popular for traditional machine learning models, it’s not easy to
