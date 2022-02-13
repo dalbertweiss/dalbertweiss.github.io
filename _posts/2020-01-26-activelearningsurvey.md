@@ -148,7 +148,7 @@ hybrid approach. Although the decision boundary is not tractable for deep networ
 give a better understanding between those two approaches. Besides these, we also mention other approaches that do not
 inclose within this division.
 
-![image info](../img/posts/activelearning-0.PNG)
+![image info](/img/posts/activelearning-0.PNG)
 
 **Uncertainty-based Methods.** Uncertainty-based methods represent the most studied query strategies due to its
 computational simplicity. Although these has been popular for traditional machine learning models, it’s not easy to
