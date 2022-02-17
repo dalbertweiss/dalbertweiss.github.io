@@ -60,7 +60,7 @@ $$
 
 However, since the calcuation of the posterior becomes intractable, there is no direct calculation of the quantiles. To bypass this, the Laplacian approximation is used, applying a fitting based on the use of the normal distribution to approximate the probability density function.
 
-![Laplacian Approximation](/img/posts/continual-learning-3.PNG)
+![Laplacian Approximation](/img/posts/continual-learning-2.png)
 
 
 **Incremental Moment Matching (IMM)**
