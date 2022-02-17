@@ -32,6 +32,7 @@ Molecular gradients and interactions lead to advances in the regard of developin
 Neurosynaptic plasticity is a feature of the brain , allwing to lean, modify and adapt to dynamic and reevolving environments. It has been shown that the plasticity of the brain particularly becomes available when difficult situations. This is specifically the case in post-developmental situations shown to be correlated with a decreasing levels of plasticity [1]. 
 
 ## b. Hebbian Plasticity and Stability
+The interaction and connectivity within the cortex, very much influences how information is processed and how learning takes place.
 
 
 
@@ -48,7 +49,19 @@ Regularization based methods allow
 These simple regularization techniques reduce the chance of weights being
 modified, and thus decrease the probability of forgetting.
 
-**Elastic Weight Consolidation** relies on Bayesian learning for which the posterior of the previous task contributes to the prior of the new task. Since the computation of the posterior in deep learning is intractable, an estimate based on the Laplacian approximation is determined. The precision herefore is estimated using the Fisher Information Matrix.
+**Elastic Weight Consolidation** relies on Bayesian learning for which the posterior of the previous task contributes to the prior of the new task. Since the computation of the posterior in deep learning is intractable, an estimate based on the Laplacian approximation is determined. The precision herefore is estimated using the Fisher Information Matrix. 
+For better understanding assume that for every parameters optimized during training of a deep learning model, such that <img src="https://render.githubusercontent.com/render/math?math=\theta = \theta^*">. After learning a training a task <img src="https://render.githubusercontent.com/render/math?math=\mathcal{A}">, the regularization method penalizes task <img src="https://render.githubusercontent.com/render/math?math=\mathcal{A}"> for learning the parameters of task <img src="https://render.githubusercontent.com/render/math?math=\mathcal{B}">. To calculate the posterior distribution, we can state that
+
+$$
+\begin{aligned}
+log(p(\theta|\sum)) = log(p(\sum|\theta)) + log(p(\theta)) - log(p(\sum))
+\end{aligned}
+$$
+
+However, since the calcuation of the posterior becomes intractable, there is no direct calculation of the quantiles. To bypass this, the Laplacian approximation is used, applying a fitting based on the use of the normal distribution to approximate the probability density function.
+
+![Laplacian Approximation](/img/posts/continual-learning-3.PNG)
+
 
 **Incremental Moment Matching (IMM)**
 
