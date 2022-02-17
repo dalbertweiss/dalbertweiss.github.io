@@ -2,7 +2,7 @@
 layout: post
 title: "Continual Learning for learning sequentially"
 subtitle: "lifelong learning when tasks enter sequentially within the data science pipeline"
-date: 2020-01-27 23:45:13 -0400
+date: 2022-01-17 23:45:13 -0400
 background: '/img/posts/01.jpg'
 ---
 
@@ -10,7 +10,7 @@ Continual learning is a new branch within deep learning which tries to infer on 
 
 
 # 1. Introduction to Continual Learning
-Within deep learning it is often assumed that all data is simultaneously available where it is assumed that training and testset come from the same distribution. While sequential arriving data has often been tackled by *online learning* has often been referred to when data points enter sequentially, continual learning offers new opportunities when data arrives for *a new task*. This differs in such a way that the assumption is made that the data can be subdevided into *tasks* allowing to break the iid assumption. A task referrs to new training data characterized by a new class, a new domain or different output space <a href="https://ieeexplore.ieee.org/document/9349197">[2]</a>. This setting is called *disjoint task setting* and for classification purposes often called *class-incremental setting*.
+Within deep learning it is often assumed that all data is simultaneously available where it is assumed that training and testset come from the same distribution. While sequential arriving data has often been tackled by *online learning* has often been referred to when data points enter sequentially, continual learning offers new opportunities when data arrives for *a new task*. This differs in such a way that the assumption is made that the data can be subdevided into *tasks* allowing to break the iid assumption. A task refers to new training data characterized by a new class, a new domain or different output space <a href="https://ieeexplore.ieee.org/document/9349197">[2]</a>. This setting is called *disjoint task setting* and for classification purposes often called *class-incremental setting*.
 
 > **Definition (task):** A tasks is an abstract representation for a learning experience characterized by a unique task label <img src="https://render.githubusercontent.com/render/math?math=t"> where the target funciont is given by the objective.
 
@@ -25,9 +25,22 @@ Generally, one distinguishes between the following continual learning scenarios:
 - **Class-Incremental Learning**: For a set of tasks the task identity is not provided during testing and needs to be inferred.
 
 
-# 2. Types of Settings for Continual Learning Approaches
+# 2. Biological Interplay with Lifelong learning
+## a. Stability-plasticity dilemma
+Molecular gradients and interactions lead to advances in the regard of developing new tasks and transfer knowledge across domains. Although it might happen that tasks and trained tasks can be forgotten within a lifespan this rarely is caused by catastrophically forgetting previously acquired skills. Lifelong learning, also referrred to as continual learning, has drawn many of its inspirations from biological interactions and interplay within the brain. Within this context the stability-plasticity dilemma is often mentioned to judge how the learning of new tasks relates with the forgetting of old tasks.
+
+Neurosynaptic plasticity is a feature of the brain , allwing to lean, modify and adapt to dynamic and reevolving environments. It has been shown that the plasticity of the brain particularly becomes available when difficult situations. This is specifically the case in post-developmental situations shown to be correlated with a decreasing levels of plasticity [1]. 
+
+## b. Hebbian Plasticity and Stability
+
+
+
+
+
+# 3. Types of Settings for Continual Learning Approaches
 Problems encountered during continual learning might be the shifts of data distributions, unbalanced data or the problem of catastrophic forgetting. To encounter this problem different kind of methods have established often subdevided into *replay*, *regularization-based* and *parameter isolation* methods.
 
+![image-in-text](/img/posts/continual-learning-1.PNG)
 
 
 ### a. Regularization-based methods
