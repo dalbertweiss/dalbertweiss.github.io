@@ -29,11 +29,21 @@ Generally, one distinguishes between the following continual learning scenarios:
 ## a. Stability-plasticity dilemma
 Molecular gradients and interactions lead to advances in the regard of developing new tasks and transfer knowledge across domains. Although it might happen that tasks and trained tasks can be forgotten within a lifespan this rarely is caused by catastrophically forgetting previously acquired skills. Lifelong learning, also referrred to as continual learning, has drawn many of its inspirations from biological interactions and interplay within the brain. Within this context the stability-plasticity dilemma is often mentioned to judge how the learning of new tasks relates with the forgetting of old tasks.
 
-Neurosynaptic plasticity is a feature of the brain , allwing to lean, modify and adapt to dynamic and reevolving environments. It has been shown that the plasticity of the brain particularly becomes available when difficult situations. This is specifically the case in post-developmental situations shown to be correlated with a decreasing levels of plasticity [1]. 
+Neurosynaptic plasticity is a feature of the brain, allowing to lean, modify and adapt to dynamic and reevolving environments. It has been shown that the plasticity of the brain particularly becomes available when difficult situations. This is specifically the case in post-developmental situations shown to be correlated with a decreasing levels of plasticity [1]. Further research provide evidence that within the mammalian (mouse) brian the excitatory synapses are strengthend when learning novel tasks while further evidence has shown an increase in the volume of dendritic spines of neurons [Yang et al, 2009,Overcoming catastrophic forgetting in neural networks].
+
+
+
+
+
 
 ## b. Hebbian Plasticity and Stability
-The interaction and connectivity within the cortex, very much influences how information is processed and how learning takes place.
+The interaction and connectivity within the cortex, very much influences how information is processed and how learning takes place. The first documented interaction of reaching synaptic plasticity  for how external stimuli provides a way of driving neural activity was proposed by Hebb (1949). Supposing Hebb's rule with states how the interplay of postsynaptic cells with presynaptic cells can lead to the devoplment of neural connectivity. Suppose of assuming a learning rate <img src="https://render.githubusercontent.com/render/math?math=\eta"> and a synaptic strength  <img src="https://render.githubusercontent.com/render/math?math=w"> which is updated by the prodcut of the pre- and post-synatpic activy  <img src="https://render.githubusercontent.com/render/math?math=x"> and  <img src="https://render.githubusercontent.com/render/math?math=y">
 
+$$
+\begin{aligned}
+\Delta w = x \cdot y \cdot \eta
+\end{aligned}
+$$
 
 
 
