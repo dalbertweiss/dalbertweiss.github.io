@@ -203,7 +203,7 @@ to semi-supervised methods. Generative Adversarial Active Learning (GAAL) uses g
 instances based on uncertainty during each AL cycle. For this, within the minimization of the optimization problem the
 instance of the pool is replaced by a generator. Then the objective function is optimized based on gradient descent.
 While tested for both MNIST and CIFAR-10 dataset, it performs less good than random acquisition which can be
-reasoned by sampling bias [?, 12, 13].
+reasoned by sampling bias [12, 13].
 A similar approach for generating uncertainty-based samples based on generative models have been proposed based
 on generating Adversarial Sampling for Active Learning (ASAL). This GAN-based method generates and retrieves
 samples for annotation based on similarity for multi-class classification problems [13]. In comparison to DCGAN bein
@@ -264,7 +264,7 @@ additional hyperparameter compensating between uncertainty and diversity samples
 ## 5.2 Model Training
 This section addresses the second point mentioned within section 2. While active learning relies on small amount of
 labeled instances, deep learning models are known for being data-hungry. To leverage this problem, strategies were
-proposed that allow for compensating reduced training data [24][?][?]. Conventional model training in active learning
+proposed that allow for compensating reduced training data [24]. Conventional model training in active learning
 solely evolves based on labeled data instances, resulting in unused resources in terms of neglecting the existence of
 unlabled data instances. To increase the number of available data during the training process and, thus, train the neural
 network architecture to its full extension, methods have been proposed to enhance the training of the model within the
@@ -325,7 +325,7 @@ ecent successes of deep active learning convey novel topics of research for whic
 been left uncommented. For this reason, we want to point out on open research questions which have to be tackled
 within future academia:
 
-**Batch training** Algorithms such as [14] [?] incoorperate training based on batches. Advantages is the
+**Batch training** Algorithms such as [14] incoorperate training based on batches. Advantages is the
 improved training. However, it is still unclear how these batches should be collected within practice.
 
 **Pool scenario** Similar things apply as for the previous point mentioned. Most algorithms are specified for
@@ -341,7 +341,7 @@ Semi-supervised Training While
 **Class inbalance** Current works have mainly been tested on freely available datasets showing high class
 balance. However, in natural circumstances one is faced with class inbalance which can cause overfitting of
 minor classes. For this especially active learning provides in interesting setting which has only been taken into
-regard within a few studies. In [?] fairness was
+regard within a few studies. 
 
 **Budget of annotation** When deciding for the acquisition function to be used in active learning, one has to
 take the budget for labeling into regard. This is specifically to mention when comparing uncertainty and
@@ -351,7 +351,7 @@ their establishment, these do not compensate for the recognition of the distribu
 Informativeness and representativeness While uncertainty-based methods often encounter sampling bias,
 the sampled batch is not representative for the distribution of the unlabeled data [?]. On the counterside, while
 diversity-based methods allow for compensation of this problem, they results in an increasing computational
-complexity. While [14] and [?] are of the opinion that queries should be based on diversity, it has been shown
+complexity. While [14] are of the opinion that queries should be based on diversity, it has been shown
 that these do not always show better performance [27]. The applicability heavily depends on the selected batch
 size for which smaller batch sizes perform more favourable for uncertainy-methods while larger batches are
 in favour of diversity. Further, the question of choosing the appropriate query strategy heavily depends its
