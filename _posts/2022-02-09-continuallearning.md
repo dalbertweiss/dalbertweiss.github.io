@@ -63,12 +63,15 @@ R = \frac{1}{N_t} \sum_{t=1}^T \sum^N_{n=1} l(f(x_n^t;\theta), y_n^t)
 \end{aligned}
 $$
 
-where <img src="https://render.githubusercontent.com/render/math?math=N"> recalls the available samples.
+where <img src="https://render.githubusercontent.com/render/math?math=N"> recalls the available samples [3].
 
-To encounter this problem different kind of methods have established often subdevided into *replay*, *regularization-based* and *parameter isolation* methods. While
+To encounter this problem different kind of methods have established often subdevided into *replay*, *regularization-based* and *parameter isolation* methods. Regularization-based approaches have been used control the variance without really having an effect on the bias. Replay methods have been used to either replay old data or considering data consisting of the same data distribution
+as the older learned tasks. While for the first case, these are usually based on randomly shuffling previously memory, there 
+have been novel approach to sample data that is most representitive.
+For a good overview of the different methods
 
 ![image-in-text](/img/posts/continual-learning-1.PNG)
-
+*Fig. 1. Illustration of various famous continual learning methods [4].*
 
 ### a. Regularization-based methods
 Regularization based methods allow
