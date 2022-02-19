@@ -367,3 +367,55 @@ Within the survey, a synopsis of current progresses and open questions within de
 The main research currently done focuses on optimization of the query strategy. This is largely persuaded that the acquistion function is directly linked to the cost of labeling. For this there is an active discussion of persuing an uncertainty or diversity-based approach. 
 
 Furthermore, hybrid approaches compensates for each of their weaknessess have be gained recent attention. We persue the establishment of uncertainty based methods since the budget compared to labeling is of primer importance. However, diversity methods are worthwhile mentioning, opening new capabilites for realistically capturing the feature distribution. Thus, this will pose novel challenges for the integration of both approaches.
+
+
+
+# 9 References
+[1] Tanmay Prakash and Avinash C. Kak. Active learning for designing detectors for infrequently occuring objects in
+wide-area satellite imagery. Computer Vision and Image Understanding, 170:92–108, 2018.
+[2] Dan Wang and Yi Shang, editors. A new active labeling method for deep learning, 2014.
+[3] Pengzhen Ren, Yun Xiao, Xiaojun Chang, Zhihui Li, Xiaojian Chen, and Xin Wang. A survey of deep active
+learning. arXiv preprint, 2020.
+[4] Sayanan Sivaraman and Mohan M. Trivedi. Active learning for on-road vehicle detection: a comparative study.
+Machine Vision and Applications, 25:599–611, 2014.
+[5] Neil Houlsby, Ferenc Huszár, Zoubin Ghahramani, and Máté Lengyel. Bayesian active learning for classification
+and preference learning. arXiv preprint, 2011.
+[6] Nicolas Débonnaire, André Stumpf, and Anne Puissant. Spatio-temporal clustering and active learning for change
+classification in satellite image time series. IEEE Journal of selected topics in applied earth obseravatoins and
+remote sensing, 9(8):3642–3650, 2016.
+[7] A. Bietti. Active learning for object detection on satellite images. Technical Report, 2012.
+[8] Devis Tuia, Frédéric Ratle, Fabio Pacifici, Mikhail F. Kanevski, and William J. Emery. Active learning methods
+for remote sensing image classification. IEEE Transactions on Geoscience and Remote Sensing, 47(7):2218–2232,
+2009.
+[9] Clemens-Alexander Brust, Christoph Käding, and Joachim Denzler. Active learning for deep object detection.
+arXiv preprint, 2018.
+[10] Kai Yu, Jinbo Bi, and Volker Tresp. Active learning via transductive experimental design. Proceedings of the 23rd
+international conference on Machine learning, pages 1081–1088, 2006.
+[11] Melanie Ducoffe and Frederic Precioso. Adversarial active learning for deep networks: a margin based approach.
+arXiv preprint, 2018.
+[12] Jia-Jie Zhu and José Bento. Generative adversarial active learning. arXiv preprint, 2017.
+[13] Christoph Mayer and Radu Timofte. Adversarial sampling for active learning. IEEE/CVF Winter Conference on
+Applications of Computer Vision (WACV), pages 3071–3079, 2020.
+[14] Ozan Sener and Silvio Savarese. Active learning for convolutional networks - a core-set approach. ICLR, 2018.
+[15] Yonatan Geifman and Ran El-Yaniv. Deep active learning over the long tail. arXiv preprint, 2017.
+[16] Fedor Zhdanov. Diverse mini-batch active learning. arXiv preprint, 2019.
+[17] Changjian Shui, Christian Gagné, and Boyu Wang. Deep active learning -unified and principled method for query
+and training. Conference on Artificial Intelligence and Statistics, pages 1308–1318, 2020.
+[18] Keze Wang, Dongyu Zhang, Ya Li, Ruimao Zhang, and Liang Lin. Cost-effective active learning for deep image
+classification. IEEE Transactions on Circuits and Systems for Video Technology, 27(12):2591–2600, 2017.
+[19] Y. Gal, R. Islam, and Z. Ghahramani. Deep bayesian active learning with image data. International Conference
+on Machine Learning, 2017.
+[20] Toan Tran, Thanh-Toan Do, Ian Reid, and Gustavo Carneiro. Bayesian generative active deep learning. arXiv
+preprint, 2019.
+[21] Samarth Sinha, Sayna Ebrahimi, and Trevor Darrell. Variational adversarial active learning. arXiv preprint, 2019.
+[22] Ali Mottaghi and Serena Yeung. Adversarial representation active learning. arXiv preprint, 2019.
+[23] Oriane Siméoni, Yannis AvrithisBudnik, and Guillaume Gravier. Rethinking deep active learning - using unlabeled
+data at model training. arXiv preprint, 2019.
+[24] Yonatan Geifman and Ran Elyaniv. Deep active learning with a neural architecture search. pages 5974–5984,
+2019.
+[25] Richard L. Phillips, Kyu Hyun Chang, and Sorelle A. Friedler. Interpretable active learning. Conference on
+Fairness, Accountability and Transparency, 81:1–13, 2018.
+[26] Stefano Teso. Toward faithful explanatory active learningwith self-explainable neural nets. AAAI/ACMConference
+on Artificial Intelligence, 2019.
+[27] Donggeun Yoo and In So Kweon. Learning loss for active learning. IEEE/CVF Conference on Computer Vision
+and Pattern Recognition (CVPR), pages 93–102, 2019.
