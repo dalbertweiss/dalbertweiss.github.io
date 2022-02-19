@@ -49,7 +49,23 @@ $$
 
 
 # 3. Types of Settings for Continual Learning Approaches
-Problems encountered during continual learning might be the shifts of data distributions, unbalanced data or the problem of catastrophic forgetting. To encounter this problem different kind of methods have established often subdevided into *replay*, *regularization-based* and *parameter isolation* methods.
+Problems encountered during continual learning might be the shifts of data distributions, unbalanced data or the problem of catastrophic forgetting. While there has been requirements set upon continual learning learning, often referred to as the *desirata of continual learning*, these mainly describe the rules which should have been satisfied for which we refer to resources within [3]. 
+
+
+> **Definition (continual learning):**  Assuming an infinite number of arriving sequentially data streams, continual learning setting allows to transfer previously previously learned task knowledge to novel applications, with the desire to not forget previously acquired information. For this, different tasks do not need to obey the assumption that the data come from the same data distribution
+may be violated. 
+
+Given that <img src="https://render.githubusercontent.com/render/math?math=T"> defines the tasks faced during training, the empirical risk may be described by
+
+$$
+\begin{aligned}
+R = \frac{1}{N_t} \sum_{t=1}^T \sum^N_{n=1} l(f(x_n^t;\theta), y_n^t)
+\end{aligned}
+$$
+
+where <img src="https://render.githubusercontent.com/render/math?math=N"> recalls the available samples.
+
+To encounter this problem different kind of methods have established often subdevided into *replay*, *regularization-based* and *parameter isolation* methods. While
 
 ![image-in-text](/img/posts/continual-learning-1.PNG)
 
@@ -106,3 +122,11 @@ Although using replay methods is an efficient method to avoid forgetting older t
 
 
 # 4. Conclusion
+
+
+# 5. 
+
+
+[1]
+[2]
+[3] Continual Learning in Neural Networks
