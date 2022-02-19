@@ -75,9 +75,7 @@ as the older learned tasks. Parameter isolation methods refer to methods that fr
 
 
 ### a. Regularization-based methods
-Regularization based methods allow
-These simple regularization techniques reduce the chance of weights being
-modified, and thus decrease the probability of forgetting.
+When no storage of previously aquired data is possible, regularization based methods come out handy. These simple regularization techniques such as l2-regularization or elastic weight consolidatoin reduce the chance of weights being modified, and thus decrease the probability of forgetting. Other techniques such as Learning without Forgetting (LwF) do not make use of penalizing the weights but penalizing the predictions. 
 
 **Elastic Weight Consolidation** relies on Bayesian learning for which the posterior of the previous task contributes to the prior of the new task. Since the computation of the posterior in deep learning is intractable, an estimate based on the Laplacian approximation is determined. The precision herefore is estimated using the Fisher Information Matrix. 
 For better understanding assume that for every parameters optimized during training of a deep learning model, such that <img src="https://render.githubusercontent.com/render/math?math=\theta = \theta^*">. After learning a training a task <img src="https://render.githubusercontent.com/render/math?math=\mathcal{A}">, the regularization method penalizes task <img src="https://render.githubusercontent.com/render/math?math=\mathcal{A}"> for learning the parameters of task <img src="https://render.githubusercontent.com/render/math?math=\mathcal{B}">. To calculate the posterior distribution, we can state that
@@ -88,7 +86,9 @@ log(p(\theta|\sum)) = log(p(\sum|\theta)) + log(p(\theta)) - log(p(\sum))
 \end{aligned}
 $$
 
-However, since the calcuation of the posterior becomes intractable, there is no direct calculation of the quantiles. To bypass this, the Laplacian approximation is used, applying a fitting based on the use of the normal distribution to approximate the probability density function.
+However, since the calcuation of the posterior becomes intractable, there is no direct calculation of the quantiles. To bypass this, the Laplacian approximation is used, applying a fitting based on the use of the normal distribution to approximate the probability density function. 
+
+EWC often makes the assumption that the diagonal of the Fisher Information Matrix is readiliy available. Since this is not always the case, **Rotation EWC** makes use of rotating the parameter space of the neural network.
 
 ![Laplacian Approximation](/img/posts/continual-learning-2.png)
 
@@ -98,7 +98,7 @@ However, since the calcuation of the posterior becomes intractable, there is no 
 **Synaptic Intellgence**
 
 
-**Rotation-EWC**
+
 **MAS**
 **Riemannian Walk**
 **Learning without forgetting (LwF)**

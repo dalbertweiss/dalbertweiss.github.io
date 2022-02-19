@@ -127,11 +127,10 @@ h_\theta = argmax_\theta f(B,\theta)_y for B \leq \mathcal{L}
 \end{aligned}
 $$
 
-To solve this optimization tasks, a valid distinction in choosing the queried batches B relate to their uncertainy and
+To solve this optimization tasks, a valid distinction in choosing the queried batches  <img src="https://render.githubusercontent.com/render/math?B">  relate to their uncertainy and
 diversity. This is largely adapted from the classical methods where the difference becomes evident based on the
 exploration versus exploitation close to the decision boundary. While samples in batches display a large similarity
 within uncertainty methods, diversity tries to capture the full distribution as a surrogate.
-
 
 However, for deep neural networks a clear understanding of uncertainty is not straightforward. Methods used in the
 classical sense such as optimal experiment design [34] would be intractable for Convolutional Neural Networks since it
@@ -144,7 +143,7 @@ in the sense of neural networks, the softmax response (SR) is used to approximat
 The design of the appropriate acquisition function is decisive in terms of the minimization of the labeling cost, playing
 a crucial role in the success of the active learning framework. Hence, it is of no surprise that strong emphasis relate to
 finding the suiting query strategy. For this we distinguish broadly between uncertainty-based, diversity-based and a
-hybrid approach. Although the decision boundary is not tractable for deep networks, we refer to figure 2 which should
+hybrid approach. Although the decision boundary is not tractable for deep networks, we refer to Figure 2 which should
 give a better understanding between those two approaches. Besides these, we also mention other approaches that do not
 inclose within this division.
 
@@ -206,9 +205,9 @@ While tested for both MNIST and CIFAR-10 dataset, it performs less good than ran
 reasoned by sampling bias [12, 13].
 A similar approach for generating uncertainty-based samples based on generative models have been proposed based
 on generating Adversarial Sampling for Active Learning (ASAL). This GAN-based method generates and retrieves
-samples for annotation based on similarity for multi-class classification problems [13]. In comparison to DCGAN bein
+samples for annotation based on similarity for multi-class classification problems [13]. In comparison to DCGAN being
 used in GAAL, they replace it by a Wasserstein GAN achieving better results. [13] report that reasons for the weaker
-performance of GAAL relate to the identification of labels of generated images can be difficult to manage
+performance of GAAL relate to the identification of labels of generated images can be difficult to manage.
 
 ![image-in-text](/img/posts/activelearning-1.PNG)
 
@@ -217,7 +216,7 @@ performance of GAAL relate to the identification of labels of generated images c
 
 **Diversity-based Methods** Diversity-based methods select data points diversily throughout the feature space, compensating the lack of exploration within uncertainty-based methods. This idea is contratry to the idea of uncertainty
 sampling and has usually been tackled by geometric approaches. This is approached by taking a set of selected samples,
-usually referred to as core set, to represent the distribution of the feature space of the entire training set [11, 12]. For
+usually referred to as coreset, to represent the distribution of the feature space of the entire training set [11, 12]. For
 this usually the batch size is increased to avoid for the sampling bias problem.
 The most renowned approach defined active learning as a coreset selection problem where the selection of a subset
 of data instances from a model trained to achieve the same performance as the model on the entirely available data
@@ -242,7 +241,7 @@ Wasserstein Adversarial Active Learning (WAAL) unites uncertainty and diversity 
 a distribution matching problem [39]. They show that for encapturing diversity, the Wasserstein distance is a better
 metric than the H-divergence usually used for measuring diversity of a query batch. For this WAAL in comprises of
 two steps, namely a min-max optimization for the DNN parameters and a query batch selection. In comparison to the
-diversity-based methods based on core-sets and k-Median [12], WAAL shows a much faster query time, which can be
+diversity-based methods based on coresets and k-Median [12], WAAL shows a much faster query time, which can be
 explained with them requiring the computation of the feature space [39].
 Task-Aware Variational Adversarial Active Learning (TA-VAAL) [40] integrating the loss prediction module and the
 concept of RankCGAN into Variational Adversarial Active Learning (VAAL). For this the conditional VAE (cVAE) is
@@ -263,7 +262,7 @@ additional hyperparameter compensating between uncertainty and diversity samples
 
 ## 5.2 Model Training
 This section addresses the second point mentioned within section 2. While active learning relies on small amount of
-labeled instances, deep learning models are known for being data-hungry. To leverage this problem, strategies were
+labeled instances, deep learning models are known for being data hungry. To leverage this problem, strategies were
 proposed that allow for compensating reduced training data [24]. Conventional model training in active learning
 solely evolves based on labeled data instances, resulting in unused resources in terms of neglecting the existence of
 unlabled data instances. To increase the number of available data during the training process and, thus, train the neural
@@ -312,7 +311,7 @@ capacity incrementally increased with the rise in labeled data. They are able to
 architecture iNAS allows to perform better than the fixed one [44].
 
 ## 5.3 Explainability of deep active models
-ecent progresses have tried to enhance the explainability and interpretablity of active learning by developing local
+Recent progresses have tried to enhance the explainability and interpretablity of active learning by developing local
 explainers that allow to specify the reason for a certain query. Local Interpretable Model-agnostic Explanations
 framework (LIME) has been used in conjunction with active learning to justify the reason of a queried instance. LIME
 allows to make faithful explanations by producing pertubations of an instance and interprets the results based on its
@@ -321,7 +320,7 @@ although this approach is model agnostic, it lacks the ability of the local mode
 classifier. Instead they propose self-explainable neural networks (SENN) which offer explainibility of their prediction.
 
 # 7 Open research questions
-ecent successes of deep active learning convey novel topics of research for which most preassumptions made have
+The successes of deep active learning convey novel topics of research for which most preassumptions made have
 been left uncommented. For this reason, we want to point out on open research questions which have to be tackled
 within future academia:
 
@@ -336,7 +335,6 @@ learning framework.
 for granted. Usually, the active learning model has been imposed on this previous optimized architecture [15].
 [?] propose a reverse approach in which the deep model architecture is learned on-the-fly. Keeping this in
 mind, this might pose further difficulties when selecting the appropriate acquisiton function for one’s problem.
-Semi-supervised Training While
 
 **Class inbalance** Current works have mainly been tested on freely available datasets showing high class
 balance. However, in natural circumstances one is faced with class inbalance which can cause overfitting of
@@ -348,7 +346,9 @@ take the budget for labeling into regard. This is specifically to mention when c
 diversity-based methods for querying. One reason for the establishment of more uncertainty-based query
 strategies can be related to it being less computational expensive. While this might drive further progress of
 their establishment, these do not compensate for the recognition of the distribution of the data.
-Informativeness and representativeness While uncertainty-based methods often encounter sampling bias,
+
+
+**Informativeness and representativeness** While uncertainty-based methods often encounter sampling bias,
 the sampled batch is not representative for the distribution of the unlabeled data [?]. On the counterside, while
 diversity-based methods allow for compensation of this problem, they results in an increasing computational
 complexity. While [14] are of the opinion that queries should be based on diversity, it has been shown
@@ -357,12 +357,9 @@ size for which smaller batch sizes perform more favourable for uncertainy-method
 in favour of diversity. Further, the question of choosing the appropriate query strategy heavily depends its
 computational complexity while being considered low in comparison to the labeling budget.
 
-**Human in the loop** as an iterative manner. However, in practice this becomes infeasible. [?] proposed a framework,
-humans are able to annotate clusters, reducing the number of interactions required.
-
 
 # 8 Conclusion
-Within the survey, a synopsis of current progresses and open questions within deep active learning for spatio-temporal data was given. While current works on fusing active learning with deep learning has been on a rare sight, most of the studies have centered on uncertainty-based sampling. Further, while diversity-based sampling is an active field of research, we point out that the cost of the respective acquistion function should be taken into regard. 
+Within the survey, a synopsis of current progresses and open questions within deep active learning was given. While current works on fusing active learning with deep learning has been on a rare sight, most of the studies have centered on uncertainty-based sampling. Further, while diversity-based sampling is an active field of research, we point out that the cost of the respective acquistion function should be taken into regard. 
 
 The main research currently done focuses on optimization of the query strategy. This is largely persuaded that the acquistion function is directly linked to the cost of labeling. For this there is an active discussion of persuing an uncertainty or diversity-based approach. 
 
