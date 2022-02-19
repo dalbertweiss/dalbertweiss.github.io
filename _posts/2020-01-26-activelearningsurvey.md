@@ -32,13 +32,13 @@ how to acquire samples for batch aware scenarios.
 Within the course of this survey, we aim to shed light behind current approaches applied to deep active learning by
 giving a comprehensive summary. Specifically, it should emphasize the need for a reformulation of the active learning
 pipeline when applied to deep neural networks. This specifically seek in giving insight to current methods adapted for
-batch aware settings. Further, we provide guidelines for future reasearch by identifying prevailing research gaps and
+batch aware settings. Further, we provide guidelines for future research by identifying prevailing research gaps and
 giving further suggestions on state-of-the-art research.
 
 # Problem Formulation
 Conventional acquisition functions have proven to not be efficient, resulting in random acquisition to outperform
 classical heuristics during model training in some cases [12, 19, 18, 35]. This has motivated the adaption of active
-learning for batch-lie settings. However, while strong research has been in the field of finding the appropriate acquisition
+learning for batch-aware settings. However, while strong research has been in the field of finding the appropriate acquisition
 strategy, few works have placed attention to the whole process, having lead to deep learning and active learning to
 be treated distinctly in many settings [?]. We argue, that a careful integration is crucial in adapting active learning
 to deep learning settings such that a reframing of active learning is a prerequisite to simultaneously learn a feature
@@ -51,7 +51,7 @@ classical sense selects one instance at a time for each training cycle, deep act
 for collecting batches for each training cycle [15]. Furthermore, while labeled instances have been used
 for training, unlabeled data serve for acquisition. To enhance training capabilities, learning strategies such
 as semi-supervised learning, unsupervised feature learning [17, ?] and data augmentation [41] yield novel
-possibilites for an adequate training within the deep active learning pipeline.
+possibilities for an adequate training within the deep active learning pipeline.
 
 2. **Interplay of the active learning pipeline** Current research, as also argued by [20], lack of inconsistencies
 within the active learning pipeline. A majority of the proposed active learning strategies have focused on
@@ -66,7 +66,7 @@ concentrate mainly on uncertainty. Although these provide a cheap way of acquisi
 exploitation, such that the samples within a query batch are sampled close to the decision boundary and, thus,
 do not represent the true data distribution. To address this problem, exploration-aware diversity sampling
 present a possibility to sample for representative batches of instances. These provide a possibility for the
-sampled batches to represent a representative surrogate of the enire data. However, while these are coupled
+sampled batches to represent a representative surrogate of the entire data. However, while these are coupled
 with higher computational complexity these might provide a waste of resources in the sense of querying for
 instances giving without additional information [13].
 
@@ -103,7 +103,7 @@ learning algorithm to query any unlabeled data instance in the input space, incl
 learning algorithm [20]. In stream-based selective sampling a stream of data is passed for annotation which makes the
 assumption that querying for an unnotated data instance is inexpensive. In a pool-based scenario a data instances are
 derived from a unlabled pool. Although the pool-based scenario is most common within the literature, the stream-based
-scenario entail most potential when applied to embedded systems or mobile devices [24, 12, 13].
+scenario entails most potential when applied to embedded systems or mobile devices [24, 12, 13].
 
 
 ## Deep Active Learning
@@ -123,7 +123,7 @@ it can be written
 
 $$
 \begin{aligned}
-h_\theta = argmax f
+h_\theta = argmax_\theta f(B,\theta)_y for B \leq \mathcal{L}
 \end{aligned}
 $$
 
